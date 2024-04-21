@@ -41,6 +41,7 @@ public class EPayMZF implements EPay {
         Map<String, Object> resultMap = JSON.parseObject(res.toString(), new TypeReference<Map<String, Object>>() {});
         MapiResponse mapiResponse = Map2MapiResponse(resultMap);
         mapiResponse.setCode(mapiResponse.getCode() - 200);
+        mapiResponse.setMsg(mapiResponse.getMsg());
         return mapiResponse;
     }
 

@@ -6,7 +6,11 @@ import org.springframework.util.DigestUtils;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+/**
+* @author: Wanghaonan @戏人看戏
+* @description: 签名验证方法
+* @create: 2024/4/21 19:53
+*/
 public class SignUtil {
     //获取Md5
     public static String Body2Md5(EPayBody ePayBody)  {
@@ -25,24 +29,26 @@ public class SignUtil {
             sign.put("param", "");
             sign.put("clientip", "192.168.1.100");
         }
+        String signStr = map2Md5(sign, ePayBody.getKey());
+        return signStr;
+    }
+    public static String map2Md5(Map<String, String> map,String key)  {
         //根据key升序排序
-        sign = sortByKey(sign);
+        map = sortByKey(map);
         String signStr = "";
         //遍历map 转成字符串
-        for (Map.Entry<String, String> m : sign.entrySet()) {
+        for (Map.Entry<String, String> m : map.entrySet()) {
             String value = m.getValue();
-            if (!m.getKey().equals("sign") && !m.getKey().equals("sign_type")&& value != null && !"".equals(value)){
+            if (!"sign".equals(m.getKey()) && !"sign_type".equals(m.getKey())&& value != null && !"".equals(value)){
                 signStr += m.getKey() + "=" + m.getValue() + "&";
             }
         }
         //去掉最后一个 &
         signStr = signStr.substring(0, signStr.length() - 1);
         //最后拼接上KEY
-        signStr += ePayBody.getKey();
-        System.out.println(signStr);
+        signStr += key;
         //转为MD5
         signStr = DigestUtils.md5DigestAsHex(signStr.getBytes());
-        System.out.println(signStr);
         return signStr;
     }
     public static <K extends Comparable<? super K>, V > Map<K, V> sortByKey(Map<K, V> map) {

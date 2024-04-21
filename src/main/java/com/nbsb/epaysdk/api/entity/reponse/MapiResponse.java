@@ -28,5 +28,24 @@ public class MapiResponse extends CommonResponse {
      * 小程序跳转url
      */
     private String urlscheme;
-
+    /**
+     * h5 url
+     */
+    private String h5_qrurl;
+    /**
+     * 商户订单号
+     */
+    private String out_trade_no;
+    /**
+     * 支付类型
+     */
+    private String type;
+    /**
+     * 金额
+     */
+    private String money;
+    /**
+     * 收款码图片地址
+     */
+    private String code_url;
 }

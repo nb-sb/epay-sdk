@@ -19,6 +19,9 @@ public class LoaderConfig implements InitializingBean {
     private Environment environment;
     @Override
     public void afterPropertiesSet() {
+        if (environment == null) {
+            throw new RuntimeException("环境未配置，请检查");
+        }
         String accountPrefix = Constant.propertiesPrefix + ".account.";
         String appId = environment.getProperty(accountPrefix + "appId");
         if (Objects.nonNull(appId)) {
@@ -32,5 +35,8 @@ public class LoaderConfig implements InitializingBean {
         if (Objects.nonNull(url)) {
             AccountConfig.setUrl(url);
         }
+    }
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
     }
 }
