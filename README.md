@@ -161,4 +161,4 @@ public class BasicController  implements EPayInterface {
 
 作者微信：扫码加好友拉你进交流群
 
-![3b3149687e2827ffe4f8d509ca5e50bf_720](./doc/3b3149687e2827ffe4f8d509ca5e50bf_720-3700853.png)
+<img src="./doc/3b3149687e2827ffe4f8d509ca5e50bf_720-3700853.png" style="width:200px;margin: 10px;">
