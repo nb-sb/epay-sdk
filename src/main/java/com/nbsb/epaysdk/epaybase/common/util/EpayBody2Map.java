@@ -26,19 +26,6 @@ public class EpayBody2Map {
         }
         return map;
     }
-    public static MapiResponse Map2MapiResponse(Map<String, Object> resultMap) {
-        MapiResponse mapiResponse = new MapiResponse();
-        MetaObject metaObject = SystemMetaObject.forObject(mapiResponse);
-        for (Object key : resultMap.keySet()) {
-            String propertyName = (String) key;
-            if (metaObject.hasSetter(propertyName)) {
-                String value = String.valueOf(resultMap.get(propertyName));
-                Object convertedValue = convertValue(metaObject, propertyName, value);
-                metaObject.setValue(propertyName, convertedValue);
-            }
-        }
-        return mapiResponse;
-    }
 
     public static <T> T Map2Bean(Map<String, Object> resultMap, Class<T> type) {
         T instance = null;

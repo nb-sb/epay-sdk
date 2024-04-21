@@ -35,7 +35,7 @@ public class EPayYZF implements EPay {
         Object res = yzfExecute.executePayment(bodyMap);
         // 使用 FastJSON 解析 JSON 字符串为一个 Map 对象
         Map<String, Object> resultMap = JSON.parseObject(res.toString(), new TypeReference<Map<String, Object>>() {});
-        MapiResponse mapiResponse = Map2MapiResponse(resultMap);
+        MapiResponse mapiResponse = Map2Bean(resultMap, MapiResponse.class);
         return mapiResponse;
     }
 
