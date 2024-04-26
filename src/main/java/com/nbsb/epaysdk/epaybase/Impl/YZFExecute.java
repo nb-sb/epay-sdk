@@ -58,7 +58,7 @@ public class YZFExecute extends EPayExecute {
             uriBuilder.addParameter("pid", map.get("pid"));
             uriBuilder.addParameter("key", map.get("key"));
 
-            String queryType = map.get("queryType");
+            String queryType = map.get("query_type");
             String orderNo = map.get("order_no");
 
             if ("1".equals(queryType)) {
