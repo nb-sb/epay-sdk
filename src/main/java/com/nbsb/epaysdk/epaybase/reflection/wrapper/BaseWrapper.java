@@ -8,9 +8,9 @@ import com.nbsb.epaysdk.epaybase.reflection.property.PropertyTokenizer;
 import java.util.List;
 import java.util.Map;
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 对象包装器抽象基类，提供一些工具方法
-* @create: 2024/4/12 15:31
+* author: Wanghaonan @戏人看戏
+* description: 对象包装器抽象基类，提供一些工具方法
+* create: 2024/4/12 15:31
 */
 public abstract class BaseWrapper implements ObjectWrapper {
     protected static final Object[] NO_ARGUMENTS = new Object[0];

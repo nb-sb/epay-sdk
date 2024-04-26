@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: whn @戏人看戏
- * @description: 易支付执行方法
- * @create: 2024/4/20 23:49
+ * author: whn @戏人看戏
+ * description: 易支付执行方法
+ * create: 2024/4/20 23:49
  */
 public abstract class EPayExecute {
     //执行支付功能

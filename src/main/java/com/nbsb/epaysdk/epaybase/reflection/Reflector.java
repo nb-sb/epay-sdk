@@ -13,9 +13,9 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 反射器，属性 get/set 的映射器
- * @create: 2024/4/12 15:49
+ * author: Wanghaonan @戏人看戏
+ * description: 反射器，属性 get/set 的映射器
+ * create: 2024/4/12 15:49
  */
 public class Reflector {
     private static boolean classCacheEnabled = true;

@@ -9,9 +9,9 @@ import com.nbsb.epaysdk.epaybase.reflection.property.PropertyTokenizer;
 import java.util.List;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 对象包装器
- * @create: 2024/4/12 15:02
+ * author: Wanghaonan @戏人看戏
+ * description: 对象包装器
+ * create: 2024/4/12 15:02
  */
 public interface ObjectWrapper {
     // get

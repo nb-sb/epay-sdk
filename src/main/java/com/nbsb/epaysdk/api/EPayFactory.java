@@ -5,9 +5,9 @@ import com.nbsb.epaysdk.api.Impl.EPayYZF;
 import com.nbsb.epaysdk.epaybase.enumeration.PayType;
 
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 易支付创建工厂，用户创建易支付还是码支付
-* @create: 2024/4/21 11:42
+* author: Wanghaonan @戏人看戏
+* description: 易支付创建工厂，用户创建易支付还是码支付
+* create: 2024/4/21 11:42
 */
 public class EPayFactory {
     //判断创建的是易支付还是码支付

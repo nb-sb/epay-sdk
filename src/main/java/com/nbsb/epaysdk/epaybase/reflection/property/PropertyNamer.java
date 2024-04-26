@@ -3,9 +3,9 @@ package com.nbsb.epaysdk.epaybase.reflection.property;
 import java.util.Locale;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 属性命名器
- * @create: 2024/4/12 15:54
+ * author: Wanghaonan @戏人看戏
+ * description: 属性命名器
+ * create: 2024/4/12 15:54
  */
 public class PropertyNamer {
     private PropertyNamer() {

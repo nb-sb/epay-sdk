@@ -18,7 +18,7 @@ import java.util.Map;
 import static com.nbsb.epaysdk.epaybase.common.util.EpayBody2Map.*;
 
 /**
- * @author whn
+ * author whn
  */
 public class EPayYZF implements EPay {
 

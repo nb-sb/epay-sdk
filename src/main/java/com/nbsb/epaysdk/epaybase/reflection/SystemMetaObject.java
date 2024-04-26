@@ -6,9 +6,9 @@ import com.nbsb.epaysdk.epaybase.reflection.wrapper.DefaultObjectWrapperFactory;
 import com.nbsb.epaysdk.epaybase.reflection.wrapper.ObjectWrapperFactory;
 
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 系统级别的元素
-* @create: 2024/4/12 14:51
+* author: Wanghaonan @戏人看戏
+* description: 系统级别的元素
+* create: 2024/4/12 14:51
 */
 public class SystemMetaObject {
 

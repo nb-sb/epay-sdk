@@ -1,8 +1,8 @@
 package com.nbsb.epaysdk.epaybase.enumeration;
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 支付方式枚举类
-* @create: 2024/4/21 11:43
+* author: Wanghaonan @戏人看戏
+* description: 支付方式枚举类
+* create: 2024/4/21 11:43
 */
 public enum  PaymentMethod {
     /**

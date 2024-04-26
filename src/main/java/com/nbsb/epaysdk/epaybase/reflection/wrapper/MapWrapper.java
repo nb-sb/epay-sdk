@@ -11,9 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: Map 包装器
-* @create: 2024/4/12 15:31
+* author: Wanghaonan @戏人看戏
+* description: Map 包装器
+* create: 2024/4/12 15:31
 */
 public class MapWrapper extends BaseWrapper{
     // 原来的对象

@@ -3,9 +3,9 @@ package com.nbsb.epaysdk.epaybase.bean;
 import com.nbsb.epaysdk.epaybase.enumeration.DeviceType;
 
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 支付类型
-* @create: 2024/4/21 15:12
+* author: Wanghaonan @戏人看戏
+* description: 支付类型
+* create: 2024/4/21 15:12
 */
 public class EpayBodyType {
     private String is_mzf = "false";

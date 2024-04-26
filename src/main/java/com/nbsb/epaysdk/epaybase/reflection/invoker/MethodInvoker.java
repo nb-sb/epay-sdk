@@ -2,9 +2,9 @@ package com.nbsb.epaysdk.epaybase.reflection.invoker;
 
 import java.lang.reflect.Method;
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 方法调用者
-* @create: 2024/4/12 15:51
+* author: Wanghaonan @戏人看戏
+* description: 方法调用者
+* create: 2024/4/12 15:51
 */
 public class MethodInvoker implements Invoker {
     private Class<?> type;

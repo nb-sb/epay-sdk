@@ -1,9 +1,9 @@
 package com.nbsb.epaysdk.epaybase.properties;
 
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 信息
-* @create: 2024/4/21 15:34
+* author: Wanghaonan @戏人看戏
+* description: 信息
+* create: 2024/4/21 15:34
 */
 public class AccountConfig {
     /**

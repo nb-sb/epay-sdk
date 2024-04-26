@@ -13,9 +13,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 元对象
- * @create: 2024/4/12 15:01
+ * author: Wanghaonan @戏人看戏
+ * description: 元对象
+ * create: 2024/4/12 15:01
  */
 public class MetaObject {
     // 原对象

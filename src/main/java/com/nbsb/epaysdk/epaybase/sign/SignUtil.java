@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 签名验证方法
-* @create: 2024/4/21 19:53
+* author: Wanghaonan @戏人看戏
+* description: 签名验证方法
+* create: 2024/4/21 19:53
 */
 public class SignUtil {
     //获取Md5

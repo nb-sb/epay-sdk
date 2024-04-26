@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 加载配置文件信息
- * @create: 2024/4/21 15:34
+ * author: Wanghaonan @戏人看戏
+ * description: 加载配置文件信息
+ * create: 2024/4/21 15:34
  */
 @Component
 public class LoaderConfig implements InitializingBean {

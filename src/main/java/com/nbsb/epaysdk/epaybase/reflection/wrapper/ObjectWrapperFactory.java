@@ -3,9 +3,9 @@ package com.nbsb.epaysdk.epaybase.reflection.wrapper;
 import com.nbsb.epaysdk.epaybase.reflection.MetaObject;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 对象包装工厂
- * @create: 2024/4/12 14:59
+ * author: Wanghaonan @戏人看戏
+ * description: 对象包装工厂
+ * create: 2024/4/12 14:59
  */
 public interface ObjectWrapperFactory {
     /**

@@ -17,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 /**
- * @author whn
+ * author whn
  */
 public class DefaultEPayExecuteImpl extends EPayExecute {
     @Override

@@ -14,9 +14,9 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 元类
- * @create: 2024/4/12 15:48
+ * author: Wanghaonan @戏人看戏
+ * description: 元类
+ * create: 2024/4/12 15:48
  */
 public class MetaClass {
     private Reflector reflector;

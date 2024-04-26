@@ -5,9 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 获取二维码的请求
- * @create: 2024/4/21 00:11
+ * author: Wanghaonan @戏人看戏
+ * description: 获取二维码的请求
+ * create: 2024/4/21 00:11
  */
 @Builder
 @AllArgsConstructor

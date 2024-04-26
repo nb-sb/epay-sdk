@@ -4,9 +4,9 @@ package com.nbsb.epaysdk.api.entity.reponse;
 import java.util.Objects;
 
 /**
-* @author: Wanghaonan @戏人看戏
-* @description: 通用响应实体
-* @create: 2024/4/21 15:52
+* author: Wanghaonan @戏人看戏
+* description: 通用响应实体
+* create: 2024/4/21 15:52
 */
 public class CommonResponse {
 

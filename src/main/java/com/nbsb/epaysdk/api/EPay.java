@@ -4,9 +4,9 @@ import com.nbsb.epaysdk.api.entity.request.GetQRCmd;
 import com.nbsb.epaysdk.api.entity.request.Query;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 定义支付的api接口需要实现的内容，必须要实现的接口
- * @create: 2024/4/21 00:04
+ * author: Wanghaonan @戏人看戏
+ * description: 定义支付的api接口需要实现的内容，必须要实现的接口
+ * create: 2024/4/21 00:04
  */
 public interface EPay {
     //API接口支付

@@ -4,7 +4,7 @@ import com.nbsb.epaysdk.epaybase.enumeration.DeviceType;
 import lombok.experimental.Accessors;
 
 /**
- * @author whn
+ * author whn
  */
 @Accessors(chain = true)
 public class EPayBody {

@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 查询
- * @create: 2024/4/21 16:36
+ * author: Wanghaonan @戏人看戏
+ * description: 查询
+ * create: 2024/4/21 16:36
  */
 @Builder
 @AllArgsConstructor

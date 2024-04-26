@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @author: Wanghaonan @戏人看戏
- * @description: 对象工厂，所有的对象都有工厂来生成
- * @create: 2024/4/12 14:54
+ * author: Wanghaonan @戏人看戏
+ * description: 对象工厂，所有的对象都有工厂来生成
+ * create: 2024/4/12 14:54
  */
 public interface ObjectFactory {
     /**
