@@ -49,7 +49,29 @@ public class EPayYZF implements EPay {
         Map<String, String> bodyMap = EpayBody2Map.beanToMap(ePayBody);
         YZFExecute yzfExecute = new YZFExecute();
         Object res = yzfExecute.executePayment(bodyMap);
-        return res;
+        //解析这个res的html中的内容获取到url
+        String extractedURL = extractURL(String.valueOf(res));
+        if (extractedURL != null) {
+            System.out.println("Extracted URL: " + extractedURL);
+        } else {
+            System.out.println("URL not found in the HTML content.");
+            return res;
+        }
+        return AccountConfig.getUrl() + extractedURL;
+    }
+    public static String extractURL(String htmlContent) {
+        String startToken = "<script>window.location.href='.";
+        String endToken = "';</script>";
+
+        int startIndex = htmlContent.indexOf(startToken);
+        int endIndex = htmlContent.indexOf(endToken);
+
+        if (startIndex != -1 && endIndex != -1) {
+            String url = htmlContent.substring(startIndex + startToken.length(), endIndex);
+            return url.trim(); // 去除首尾空格
+        } else {
+            return null; // 如果未找到URL，则返回null
+        }
     }
 
     @Override

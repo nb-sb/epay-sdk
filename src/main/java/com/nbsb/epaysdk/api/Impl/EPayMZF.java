@@ -47,7 +47,7 @@ public class EPayMZF implements EPay {
 
     @Override
     public Object submit(GetQRCmd cmd) {
-        return null;
+        throw new RuntimeException("方法未实现，或不推荐此使用方式");
     }
 
     @Override
