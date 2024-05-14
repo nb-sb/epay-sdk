@@ -43,7 +43,7 @@ public class EPayYZF implements EPay {
     public Object submit(GetQRCmd cmd) {
         EPayBody ePayBody = cmd2EPayBody(cmd);
         ePayBody.setUrl(AccountConfig.getUrl() + "submit.php");
-        ePayBody.setIs_mzf("true");
+        ePayBody.setIs_mzf("false");
         //转为md5
         ePayBody.setSign(SignUtil.Body2Md5(ePayBody));
         Map<String, String> bodyMap = EpayBody2Map.beanToMap(ePayBody);
