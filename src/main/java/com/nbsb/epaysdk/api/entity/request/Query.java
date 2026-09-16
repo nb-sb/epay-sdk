@@ -1,32 +1,48 @@
 package com.nbsb.epaysdk.api.entity.request;
 
+import com.nbsb.epaysdk.epaybase.enumeration.QueryType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 /**
- * author: Wanghaonan @戏人看戏
- * description: 查询
- * create: 2024/4/21 16:36
+ * Single-order query. Type 1 = trade_no, type 2 = out_trade_no.
  */
 @Builder
 @AllArgsConstructor
 public class Query {
-    //查询类型 1:本地订单号,2:商户订单号
     private Integer query_type;
-    //    订单号
-    //系统订单号 - 第三方收款生成的订单号 trade_no
-    //商户订单号 - 自己生成的订单号 out_trade_no
     private String order_no;
+    @Builder.Default
     private String act = "order";
     private Integer pid;
     private String key;
 
+    public Query() {
+    }
+
     public Query(Integer query_type, String order_no) {
         this.query_type = query_type;
         this.order_no = order_no;
+        this.act = "order";
+    }
+
+    public Query(QueryType queryType, String order_no) {
+        this(queryType == null ? null : queryType.getCode(), order_no);
+    }
+
+    public static Query byTradeNo(String tradeNo) {
+        return new Query(QueryType.TRADE_NO, tradeNo);
+    }
+
+    public static Query byOutTradeNo(String outTradeNo) {
+        return new Query(QueryType.OUT_TRADE_NO, outTradeNo);
     }
 
     public Integer getQueryType() {
+        return query_type;
+    }
+
+    public Integer getQuery_type() {
         return query_type;
     }
 
@@ -40,6 +56,14 @@ public class Query {
 
     public void setOrder_no(String order_no) {
         this.order_no = order_no;
+    }
+
+    public String getAct() {
+        return act == null ? "order" : act;
+    }
+
+    public void setAct(String act) {
+        this.act = act;
     }
 
     public Integer getPid() {
@@ -57,6 +81,4 @@ public class Query {
     public void setKey(String key) {
         this.key = key;
     }
-
-
 }

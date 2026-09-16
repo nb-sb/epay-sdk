@@ -1,14 +1,26 @@
 package com.nbsb.epaysdk.api;
 
+import com.nbsb.epaysdk.core.config.MerchantConfig;
+import com.nbsb.epaysdk.core.notify.NotifyPayload;
+import com.nbsb.epaysdk.core.notify.NotifyVerifier;
+
 import java.util.Map;
 
 /**
- * author: Wanghaonan @戏人看戏
- * description: 必须要实现的类，回调接口
- * create: 2024/4/21 18:19
+ * Callback hook for notify_url. Return {@link NotifyPayload#SUCCESS_ACK} after persisting the order.
  */
 public interface EPayInterface {
-    //如果不是success则会重复发送回调信息，你可以实现这个GET controller接口进行等待回调订单
-    //这个接口可以保存
+
+    /**
+     * If the body is not {@code success}, the gateway retries.
+     */
     String onPayResult(Map<String, String> params);
+
+    default boolean verifyNotify(Map<String, String> params, String appKey) {
+        return NotifyVerifier.verify(params, appKey);
+    }
+
+    default NotifyPayload parseNotify(Map<String, String> params, MerchantConfig config) {
+        return NotifyVerifier.parseAndVerify(params, config);
+    }
 }

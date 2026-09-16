@@ -1,5 +1,6 @@
 package com.nbsb.epaysdk.api.entity.reponse;
 
+import com.nbsb.epaysdk.epaybase.enumeration.OrderStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -70,4 +71,12 @@ public class OrderInfoResponse extends CommonResponse {
      * 支付者账号，默认留空
      */
     private String buyer;
+
+    public boolean isPaid() {
+        return status != null && status == 1;
+    }
+
+    public OrderStatus orderStatus() {
+        return OrderStatus.fromCode(status);
+    }
 }

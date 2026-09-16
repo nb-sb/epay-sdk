@@ -1,29 +1,42 @@
 package com.nbsb.epaysdk.api.entity.request;
 
+import com.nbsb.epaysdk.epaybase.enumeration.DeviceType;
 import com.nbsb.epaysdk.epaybase.enumeration.PaymentMethod;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 /**
- * author: Wanghaonan @戏人看戏
- * description: 获取二维码的请求
- * create: 2024/4/21 00:11
+ * Create-payment command (mapi / submit).
  */
 @Builder
 @AllArgsConstructor
 public class GetQRCmd {
-    //商品名称
     private String name;
-    //订单号
     private String orderNo;
-    //商品金额
     private String amount;
-    //支付方式
+    @Builder.Default
     private PaymentMethod payType = PaymentMethod.ALIPAY;
-    //异步通知
     private String notify_url;
-    //跳转地址
     private String return_url;
+    @Builder.Default
+    private DeviceType device = DeviceType.JUMP;
+    private String clientIp;
+    private String param;
+
+    public GetQRCmd() {
+    }
+
+    public GetQRCmd(String name, String orderNo, String amount, PaymentMethod payType,
+                    String notify_url, String return_url) {
+        this.name = name;
+        this.orderNo = orderNo;
+        this.amount = amount;
+        this.payType = payType;
+        this.notify_url = notify_url;
+        this.return_url = return_url;
+        this.device = DeviceType.JUMP;
+    }
+
 
     public PaymentMethod getPayType() {
         return payType;
@@ -71,5 +84,29 @@ public class GetQRCmd {
 
     public void setReturn_url(String return_url) {
         this.return_url = return_url;
+    }
+
+    public DeviceType getDevice() {
+        return device == null ? DeviceType.JUMP : device;
+    }
+
+    public void setDevice(DeviceType device) {
+        this.device = device;
+    }
+
+    public String getClientIp() {
+        return clientIp;
+    }
+
+    public void setClientIp(String clientIp) {
+        this.clientIp = clientIp;
+    }
+
+    public String getParam() {
+        return param;
+    }
+
+    public void setParam(String param) {
+        this.param = param;
     }
 }

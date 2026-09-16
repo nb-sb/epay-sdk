@@ -29,105 +29,66 @@
 
 ### 2.yml配置商户信息
 
-```xml
-# 彩虹易支付或者码支付后台的配置
-nbsb.pay.account.url=https://XXXX.com/
-nbsb.pay.account.appId=1001
-nbsb.pay.account.appKey=xxxxxxxxxxxxxxxxx
+```yaml
+nbsb.pay.type: yzf
+nbsb.pay.account.url: https://XXXX.com/
+nbsb.pay.account.appId: 1001
+nbsb.pay.account.appKey: xxxxxxxxxxxxxxxxx
+nbsb.pay.account.clientIp: 203.0.113.10
 ```
 
-### 3. 支付服务Service注入到Spring容器
+Spring Boot 会自动装配 `EPayClient`（需配置 `nbsb.pay.account.appId`）。仍可用 `LoaderConfig` 把账号写入静态 `AccountConfig`。
+
+### 3. 推荐用法：EPayClient + MerchantConfig
+
+每个商户一份配置，避免静态全局账号。
 
 ```java
-@Configuration
-public class Config {
-    @Resource
-    private Environment environment;
-    @Bean
-    public void init() {
-        LoaderConfig loaderConfig = new LoaderConfig();
-        loaderConfig.setEnvironment(environment);
-        loaderConfig.afterPropertiesSet();
-    }
-}
+EPayClient client = EPayClient.builder()
+        .payType(PayType.YZF)
+        .config(MerchantConfig.builder()
+                .url("https://XXXX.com/")
+                .appId("1001")
+                .appKey("xxxxxxxx")
+                .clientIp("203.0.113.10")
+                .build())
+        .build();
+
+GetQRCmd cmd = new GetQRCmd("测试商品", "20214014211111173712331", "0.10",
+        PaymentMethod.ALIPAY, "https://shop.example/notify", "https://shop.example/return");
+MapiResponse mapi = client.mapi(cmd);
+OrderInfoResponse order = client.queryOrder(Query.byOutTradeNo(cmd.getOrderNo()));
 ```
 
-配置相关信息，易支付/码支付api地址，用户id和密钥
+易支付还支持：`submit` / `buildSubmitForm`（页面跳转）、`refund`、`queryMerchant`、`queryOrders`、`waitUntilPaid`、`verifyNotify` / `parseNotify`。
 
-```xml
-nbsb.pay.account.url=https://XXXX.com/
-nbsb.pay.account.appId=XXX
-nbsb.pay.account.appKey=XXXXXXXXXX
-```
-
-### 4. 使用
-
-提供多种使用方式
-
-1.使用工厂进行创建是易支付还是码支付，并进行相关信息获取
-
-填写自己相关配置即可，例如商品名称，商户订单号，金额，支付方式（这里定义好了枚举可以自己进行选择使用），回调地址和返回地址
+### 4. 兼容用法：工厂或直接 new
 
 ```java
-EPayFactory ePayFactory = new EPayFactory();
-//获取码支付信息
-EPayMZF ePay = (EPayMZF) ePayFactory.create(PayType.MZF);
-//这里是模拟的数据，可以根据自己实际进行填写，更多案例可以看项目 epay-sdk-example测试用例中的内容
-GetQRCmd cmd = new GetQRCmd("测试商品名称","20214014211111173712331","0.1",
-PaymentMethod.ALIPAY,"https://baidu1.com/","https://baidu1.com/");
+EPay ePay = EPayFactory.create(PayType.MZF, merchantConfig);
 MapiResponse mapi = ePay.mapi(cmd);
-System.out.println(JSON.toJSONString(mapi));
+
+Query query = Query.byOutTradeNo("20240421173712331"); // 1=trade_no, 2=out_trade_no
+OrderInfoResponse info = new EPayYZF(merchantConfig).queryOrder(query);
 ```
 
-2.指定new 一个码支付的类`new EPayMZF()`或者易支付的类进行执行即可`new EPayYZF()`
+### 5. 回调接口（必须验签）
 
-```java
-GetQRCmd cmd = new GetQRCmd("测试商品名称","20214014211111173712331","0.1",
-        PaymentMethod.ALIPAY,
-        "https://baidu1.com/","https://baidu1.com/");
-EPayMZF ePayMZF = new EPayMZF();
-MapiResponse mapi = ePayMZF.mapi(cmd);
-System.out.println(JSON.toJSONString(mapi));
-```
-
-3.还有默认的查询订单信息
-
-订单信息查询可以设置查询类型和订单号，订单号可以自己进行选择是本地订单号（就是上方自己获取收款信息的订单），商户订单就是易支付那边自动生成的订单号
-
-```
-//查询类型 1:本地订单号,2:商户订单号
-```
-
-```java
-Query query = new Query(2,"20240421173712331");
-EPayYZF ePayYZF = new EPayYZF();
-Object mapi = ePayYZF.queryOrder(query);
-System.out.println(JSON.toJSONString(mapi));
-```
-
-更多方法可以查看test文件
-
-4.回调接口（系统中必须有的）
-
-用于接收回调信息，进行订单状态的修改
-
-需要继承实现`EPayInterface`接口,示例：
+收到异步通知后校验签名，再改本地订单，最后返回 `success`。
 
 ```java
 @RestController
-public class BasicController  implements EPayInterface {
-    private static final Logger logger = LoggerFactory.getLogger(BasicController.class);
+public class BasicController implements EPayInterface {
+    private final EPayClient client;
 
     @GetMapping("/pay/notify/")
     @Override
     public String onPayResult(@RequestParam Map<String, String> params) {
-        // 打印所有传入的GET参数
-        params.forEach((key, value) -> logger.info("GET parameter - {}: {}", key, value));
-        // 验证签名！必须验证！如果你不想让你自己被盗刷的话（别人直接请求你就保存支付成功状态了）验证方法在SignUtil类中有，可以直接使用 SignUtil.map2Md5()
-
-      	// 获取异步返回的内容
-        // 进行修改订单状态并持久化存贮
-        return null;
+        NotifyPayload notify = client.parseNotify(params);
+        if (notify.isPaid()) {
+            // persist order paid: notify.getOutTradeNo()
+        }
+        return NotifyPayload.SUCCESS_ACK;
     }
 }
 ```

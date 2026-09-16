@@ -3,35 +3,54 @@ package com.nbsb.epaysdk.epaybase.bean;
 import com.nbsb.epaysdk.epaybase.enumeration.DeviceType;
 import lombok.experimental.Accessors;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
- * author whn
+ * Signed form body sent to the gateway.
  */
 @Accessors(chain = true)
 public class EPayBody {
-    //支付地址
     private String url;
-    //商户id
     private String pid;
-    //支付类型
     private String type;
-    //商户单号
     private String out_trade_no;
-    //异步通知
     private String notify_url;
-    //跳转地址
     private String return_url;
-    //商品名
     private String name;
-    //价格
     private String money;
-    //签名类型
     private String sign_type = "MD5";
-    //商户密钥
     private String key;
     private String sign;
-//    //平台类型 是mzf还是yzf
-//    private String is_mzf = "false";
+    private String device;
+    private String clientip;
+    private String param = "";
     private EpayBodyType epayBodyType = new EpayBodyType();
+
+    public Map<String, String> toFormMap() {
+        Map<String, String> form = new LinkedHashMap<String, String>();
+        put(form, "pid", pid);
+        put(form, "type", type);
+        put(form, "out_trade_no", out_trade_no);
+        put(form, "notify_url", notify_url);
+        put(form, "return_url", return_url);
+        put(form, "name", name);
+        put(form, "money", money);
+        put(form, "sign_type", sign_type);
+        put(form, "sign", sign);
+        if (!"true".equals(isIs_mzf())) {
+            put(form, "device", device);
+            put(form, "param", param == null ? "" : param);
+            put(form, "clientip", clientip);
+        }
+        return form;
+    }
+
+    private static void put(Map<String, String> form, String key, String value) {
+        if (value != null) {
+            form.put(key, value);
+        }
+    }
 
     public EpayBodyType getEpayBodyType() {
         return epayBodyType;
@@ -48,12 +67,45 @@ public class EPayBody {
     public void setIs_mzf(String is_mzf) {
         getEpayBodyType().setIs_mzf(is_mzf);
     }
+
     public DeviceType getDeviceType() {
         return getEpayBodyType().getDeviceType();
     }
+
     public void setDeviceType(DeviceType type) {
         getEpayBodyType().setType(type);
+        if (type != null) {
+            this.device = type.getDeviceTypeName();
+        }
     }
+
+    public String getDevice() {
+        if (device != null) {
+            return device;
+        }
+        return getDeviceType() == null ? DeviceType.JUMP.getDeviceTypeName() : getDeviceType().getDeviceTypeName();
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
+    }
+
+    public String getClientip() {
+        return clientip;
+    }
+
+    public void setClientip(String clientip) {
+        this.clientip = clientip;
+    }
+
+    public String getParam() {
+        return param;
+    }
+
+    public void setParam(String param) {
+        this.param = param;
+    }
+
     public String getUrl() {
         return url;
     }
@@ -77,8 +129,6 @@ public class EPayBody {
     public void setType(String type) {
         this.type = type;
     }
-
-
 
     public String getName() {
         return name;
@@ -127,7 +177,6 @@ public class EPayBody {
     public void setSign_type(String sign_type) {
         this.sign_type = sign_type;
     }
-
 
     public String getKey() {
         return key;

@@ -9,14 +9,13 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 /**
- * author: Wanghaonan @戏人看戏
- * description: 加载配置文件信息
- * create: 2024/4/21 15:34
+ * Loads {@code nbsb.pay.account.*} into the legacy static {@link AccountConfig}.
  */
 @Component
 public class LoaderConfig implements InitializingBean {
     @Autowired
     private Environment environment;
+
     @Override
     public void afterPropertiesSet() {
         if (environment == null) {
@@ -36,6 +35,7 @@ public class LoaderConfig implements InitializingBean {
             AccountConfig.setUrl(url);
         }
     }
+
     public void setEnvironment(Environment environment) {
         this.environment = environment;
     }
