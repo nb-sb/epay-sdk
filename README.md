@@ -23,7 +23,17 @@
 
 ### 1.引入maven
 
-目前还没上传至maven库中，可以暂时引入jar包（jar目录下，复制jar包到你的项目中，这里在epay-sdk-example示例中演示）
+发布到 Maven Central 之后使用（版本以实际发布为准；当前仓库仍是 `0.0.1-SNAPSHOT`）：
+
+```xml
+<dependency>
+    <groupId>com.nbsb</groupId>
+    <artifactId>epay-sdk</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+尚未发布前可暂时引入 `jar/` 目录下的本地包（示例见 [epay-sdk-example](https://github.com/nb-sb/epay-sdk-example.git)）。维护者用 Central Publisher Portal 发布，不要走已停用的 OSSRH。
 
 ![image-20240421193240394](./doc/image-20240421193240394.png)
 
