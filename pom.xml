@@ -5,11 +5,10 @@
 
     <!--
       groupId is the Maven coordinate, not the Java package.
-      com.nbsb stays so existing Maven/Java call sites keep working.
-      Publishing to Central still requires a verified namespace for this groupId
-      (own nbsb.com, or later change to io.github.nb-sb). See docs/maven-central.md.
+      io.github.nb-sb is the Central-publishable namespace (GitHub user nb-sb).
+      Java packages stay com.nbsb.epaysdk. See docs/maven-central.md.
     -->
-    <groupId>com.nbsb</groupId>
+    <groupId>io.github.nb-sb</groupId>
     <artifactId>epay-sdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>

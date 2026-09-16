@@ -27,7 +27,7 @@
 
 ```xml
 <dependency>
-    <groupId>com.nbsb</groupId>
+    <groupId>io.github.nb-sb</groupId>
     <artifactId>epay-sdk</artifactId>
     <version>0.0.1</version>
 </dependency>
