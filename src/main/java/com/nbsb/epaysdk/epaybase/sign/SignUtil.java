@@ -1,21 +1,21 @@
 package com.nbsb.epaysdk.epaybase.sign;
 
+import com.nbsb.epaysdk.core.exception.EPayException;
 import com.nbsb.epaysdk.epaybase.bean.EPayBody;
-import org.springframework.util.DigestUtils;
 
-import java.util.HashMap;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 /**
-* author: Wanghaonan @戏人看戏
-* description: 签名验证方法
-* create: 2024/4/21 19:53
-*/
+ * MD5 sign used by 易支付 / 码支付 (sorted key=value&amp;... + key).
+ */
 public class SignUtil {
-    //获取Md5
-    public static String Body2Md5(EPayBody ePayBody)  {
-        //参数存入 map
-        Map<String, String> sign = new HashMap<>();
+
+    public static String Body2Md5(EPayBody ePayBody) {
+        Map<String, String> sign = new LinkedHashMap<String, String>();
         sign.put("pid", ePayBody.getPid());
         sign.put("type", ePayBody.getType());
         sign.put("out_trade_no", ePayBody.getOut_trade_no());
@@ -23,38 +23,52 @@ public class SignUtil {
         sign.put("return_url", ePayBody.getReturn_url());
         sign.put("name", ePayBody.getName());
         sign.put("money", ePayBody.getMoney());
-        //如果是 yzf
         if (!"true".equals(ePayBody.isIs_mzf())) {
-            sign.put("device", ePayBody.getDeviceType().getDeviceTypeName());
-            sign.put("param", "");
-            sign.put("clientip", "192.168.1.100");
+            sign.put("device", ePayBody.getDevice());
+            sign.put("param", ePayBody.getParam() == null ? "" : ePayBody.getParam());
+            sign.put("clientip", ePayBody.getClientip());
         }
-        String signStr = map2Md5(sign, ePayBody.getKey());
-        return signStr;
+        return map2Md5(sign, ePayBody.getKey());
     }
-    public static String map2Md5(Map<String, String> map,String key)  {
-        //根据key升序排序
+
+    public static String map2Md5(Map<String, String> map, String key) {
         map = sortByKey(map);
-        String signStr = "";
-        //遍历map 转成字符串
-        for (Map.Entry<String, String> m : map.entrySet()) {
-            String value = m.getValue();
-            if (!"sign".equals(m.getKey()) && !"sign_type".equals(m.getKey())&& value != null && !"".equals(value)){
-                signStr += m.getKey() + "=" + m.getValue() + "&";
+        StringBuilder signStr = new StringBuilder();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            String value = entry.getValue();
+            if (!"sign".equals(entry.getKey()) && !"sign_type".equals(entry.getKey())
+                    && value != null && !value.isEmpty()) {
+                signStr.append(entry.getKey()).append('=').append(value).append('&');
             }
         }
-        //去掉最后一个 &
-        signStr = signStr.substring(0, signStr.length() - 1);
-        //最后拼接上KEY
-        signStr += key;
-        //转为MD5
-        signStr = DigestUtils.md5DigestAsHex(signStr.getBytes());
-        return signStr;
+        if (signStr.length() == 0) {
+            throw new EPayException("签名字段为空");
+        }
+        signStr.setLength(signStr.length() - 1);
+        signStr.append(key);
+        return md5Hex(signStr.toString());
     }
-    public static <K extends Comparable<? super K>, V > Map<K, V> sortByKey(Map<K, V> map) {
-        Map<K, V> result = new LinkedHashMap<>();
+
+    public static String md5Hex(String input) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+            byte[] bytes = digest.digest(input.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hex = new StringBuilder(bytes.length * 2);
+            for (byte b : bytes) {
+                hex.append(Character.forDigit((b >> 4) & 0xF, 16));
+                hex.append(Character.forDigit(b & 0xF, 16));
+            }
+            return hex.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new EPayException("MD5 不可用", e);
+        }
+    }
+
+    public static <K extends Comparable<? super K>, V> Map<K, V> sortByKey(Map<K, V> map) {
+        Map<K, V> result = new LinkedHashMap<K, V>();
         map.entrySet().stream()
-                .sorted(Map.Entry.<K, V>comparingByKey()).forEachOrdered(e -> result.put(e.getKey(), e.getValue()));
+                .sorted(Map.Entry.<K, V>comparingByKey())
+                .forEachOrdered(e -> result.put(e.getKey(), e.getValue()));
         return result;
     }
 }

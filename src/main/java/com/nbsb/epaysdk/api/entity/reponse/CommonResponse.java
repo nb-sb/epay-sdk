@@ -1,24 +1,24 @@
 package com.nbsb.epaysdk.api.entity.reponse;
 
-
-import java.util.Objects;
-
 /**
-* author: Wanghaonan @戏人看戏
-* description: 通用响应实体
-* create: 2024/4/21 15:52
-*/
+ * Shared gateway envelope. YZF uses code=1 for success; MZF is normalized to the same.
+ */
 public class CommonResponse {
 
     private Integer code;
 
     private String msg;
 
+    /**
+     * @deprecated always compared Integer to "success"; use {@link #isSuccess()}.
+     */
+    @Deprecated
     public static <T extends CommonResponse> boolean verifyResponse(T param) {
-        if (Objects.equals(param.getCode(), "success")) {
-            return true;
-        }
-        return false;
+        return param != null && param.isSuccess();
+    }
+
+    public boolean isSuccess() {
+        return code != null && code == 1;
     }
 
     public Integer getCode() {

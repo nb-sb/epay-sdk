@@ -1,31 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://www.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.nbsb</groupId>
+
+    <!--
+      groupId is the Maven coordinate, not the Java package.
+      io.github.nb-sb is the Central-publishable namespace (GitHub user nb-sb).
+      Java packages stay com.nbsb.epaysdk. See docs/maven-central.md.
+    -->
+    <groupId>io.github.nb-sb</groupId>
     <artifactId>epay-sdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>epay-sdk</name>
-    <description>epay-sdk</description>
+    <packaging>jar</packaging>
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Java SDK for 彩虹易支付 (YZF) and 码支付 (MZF): create pay, query, refund, and verify notify.</description>
+    <url>https://github.com/nb-sb/epay-sdk</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>nb-sb</id>
+            <name>wanghaonan</name>
+            <email>3500079813@qq.com</email>
+            <organization>nb-sb</organization>
+            <organizationUrl>https://github.com/nb-sb</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/nb-sb/epay-sdk.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/nb-sb/epay-sdk.git</developerConnection>
+        <url>https://github.com/nb-sb/epay-sdk</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/nb-sb/epay-sdk/issues</url>
+    </issueManagement>
+
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.6.13</spring-boot.version>
-        <projectUrl>https://github.com/nb-sb/epay-sdk.git</projectUrl>
+        <projectUrl>https://github.com/nb-sb/epay-sdk</projectUrl>
+        <central-publishing-maven-plugin.version>0.11.0</central-publishing-maven-plugin.version>
     </properties>
-    <scm>
-        <tag>main</tag>
-        <url>https://github.com/nb-sb/epay-sdk.git</url>
-        <connection>https://github.com/nb-sb/epay-sdk.git</connection>
-        <developerConnection>https://github.com/nb-sb/epay-sdk.git</developerConnection>
-    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -36,7 +71,6 @@
             <artifactId>fastjson</artifactId>
             <version>2.0.42</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5 -->
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
@@ -45,8 +79,11 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -61,83 +98,105 @@
 
     <build>
         <plugins>
-            <!-- Source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <showWarnings>true</showWarnings>
+                    <compilerArgs>
+                        <arg>-Xlint:none</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <id>attach-sources</id>
                         <goals>
                             <goal>jar-no-fork</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-            <!-- Javadoc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.1</version>
+                <version>3.6.3</version>
                 <executions>
                     <execution>
+                        <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
-                            <goal>javadoc</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-                <configuration>
-                    <additionalparam>-Xdoclint:none</additionalparam>
-                </configuration>
-            </plugin>
-            <!-- GPG -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <!--Compiler-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <fork>true</fork>
-                    <verbose>true</verbose>
+                    <source>8</source>
                     <encoding>UTF-8</encoding>
-                    <showWarnings>false</showWarnings>
+                    <charset>UTF-8</charset>
+                    <doclint>none</doclint>
+                    <detectJavaApiLink>false</detectJavaApiLink>
+                    <failOnError>true</failOnError>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <developers>
-        <developer>
-            <name>wanghaonan</name>
-            <email>3500079813@qq.com</email>
-            <organization>wanghaonan</organization>
-            <organizationUrl>https://github.com/nb-sb</organizationUrl>
-        </developer>
-    </developers>
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>maven-center-staging</id>-->
-<!--            <name>Nexus Release Repository</name>-->
-<!--            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
-<!--        </repository>-->
-<!--    </distributionManagement>-->
 
-
+    <!--
+      GPG + Central Portal upload only. Daily mvn test / package does not need keys.
+      Secrets stay in ~/.m2/settings.xml and the local GPG agent — never in this repo.
+    -->
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.7</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <!-- Passphrase via env (gpg.passphrase) or gpg-agent; never commit it. -->
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>${central-publishing-maven-plugin.version}</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>false</autoPublish>
+                            <waitUntil>validated</waitUntil>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
