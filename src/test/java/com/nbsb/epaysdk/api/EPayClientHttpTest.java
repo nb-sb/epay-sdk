@@ -43,7 +43,9 @@ class EPayClientHttpTest {
         server.createContext("/submit.php", exchange -> write(exchange, "<script>window.location.href='./pay/go?x=1';</script>"));
         server.createContext("/api.php", exchange -> {
             String query = exchange.getRequestURI().getRawQuery();
-            if (query != null && query.contains("act=order")) {
+            if (query != null && query.contains("act=orders")) {
+                write(exchange, "{\"code\":1,\"msg\":\"ok\",\"count\":1,\"data\":[{\"out_trade_no\":\"ORD-1\",\"status\":1}]}");
+            } else if (query != null && query.contains("act=order")) {
                 int n = orderQueries.incrementAndGet();
                 int status = n >= 2 ? 1 : 0;
                 write(exchange, "{\"code\":1,\"msg\":\"ok\",\"out_trade_no\":\"ORD-1\",\"status\":" + status + "}");
@@ -51,8 +53,6 @@ class EPayClientHttpTest {
                 write(exchange, "{\"code\":1,\"msg\":\"ok\",\"money\":\"1.00\"}");
             } else if (query != null && query.contains("act=query")) {
                 write(exchange, "{\"code\":1,\"msg\":\"ok\",\"pid\":1001,\"money\":\"88.50\",\"username\":\"shop\"}");
-            } else if (query != null && query.contains("act=orders")) {
-                write(exchange, "{\"code\":1,\"msg\":\"ok\",\"count\":1,\"data\":[{\"out_trade_no\":\"ORD-1\",\"status\":1}]}");
             } else {
                 write(exchange, "{\"code\":0,\"msg\":\"unknown\"}");
             }
