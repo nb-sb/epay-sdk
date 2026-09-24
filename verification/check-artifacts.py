@@ -31,8 +31,9 @@ def main():
                 if classifier == "-sources":
                     require(api + ".java" in names, f"缺少源码：{artifact}")
                 elif classifier == "-javadoc":
-                    require("index.html" in names and api + ".html" in names,
-                            f"缺少 Javadoc：{artifact}")
+                    page = api + ".html"
+                    documented = page in names or f"io.github.nb.sb.epay.sdk/{page}" in names
+                    require("index.html" in names and documented, f"缺少 Javadoc：{artifact}")
                 else:
                     require(api + ".class" in names, f"缺少公开 API：{artifact}")
                     for name in names:
