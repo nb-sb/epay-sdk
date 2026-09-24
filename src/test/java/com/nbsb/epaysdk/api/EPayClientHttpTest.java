@@ -25,8 +25,10 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -35,6 +37,7 @@ class EPayClientHttpTest {
     private HttpServer server;
     private String baseUrl;
     private final AtomicInteger orderQueries = new AtomicInteger();
+    private final AtomicReference<String> lastApiQuery = new AtomicReference<String>();
 
     @BeforeEach
     void startServer() throws IOException {
@@ -43,6 +46,7 @@ class EPayClientHttpTest {
         server.createContext("/submit.php", exchange -> write(exchange, "<script>window.location.href='./pay/go?x=1';</script>"));
         server.createContext("/api.php", exchange -> {
             String query = exchange.getRequestURI().getRawQuery();
+            lastApiQuery.set(query);
             if (query != null && query.contains("act=orders")) {
                 write(exchange, "{\"code\":1,\"msg\":\"ok\",\"count\":1,\"data\":[{\"out_trade_no\":\"ORD-1\",\"status\":1}]}");
             } else if (query != null && query.contains("act=order")) {
@@ -86,8 +90,13 @@ class EPayClientHttpTest {
         String form = client.buildSubmitForm(cmd);
         assertTrue(form.contains("mapi.php") || form.contains("submit.php"));
 
-        OrderInfoResponse unpaidThenPaid = client.waitUntilPaid(Query.byOutTradeNo("ORD-1"), 2000, 20);
+        Query query = Query.byOutTradeNo("ORD-1");
+        OrderInfoResponse unpaidThenPaid = client.waitUntilPaid(query, 2000, 20);
         assertTrue(unpaidThenPaid.isPaid());
+        assertNull(query.getKey());
+        assertNull(query.getPid());
+        assertTrue(lastApiQuery.get().contains("key=secret"));
+        assertTrue(lastApiQuery.get().contains("pid=1001"));
 
         RefundResponse refund = client.refund(RefundCmd.byOutTradeNo("ORD-1", "1.00"));
         assertTrue(refund.isSuccess());
@@ -109,9 +118,12 @@ class EPayClientHttpTest {
         assertEquals(1, mapi.getCode());
         assertEquals("https://mzf", mapi.getQrcode());
 
-        OrderInfoResponse order = mzf.queryOrder(Query.byOutTradeNo("ORD-1"));
+        Query query = Query.byOutTradeNo("ORD-1");
+        OrderInfoResponse order = mzf.queryOrder(query);
         assertTrue(order.isPaid());
         assertEquals(1, order.getCode());
+        assertNull(query.getKey());
+        assertNull(query.getPid());
         assertThrows(EPayUnsupportedException.class, () -> mzf.refund(RefundCmd.byTradeNo("T1", "1.00")));
         assertThrows(EPayUnsupportedException.class, mzf::queryMerchant);
     }

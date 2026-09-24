@@ -6,10 +6,6 @@ import com.nbsb.epaysdk.api.entity.request.Query;
 import com.nbsb.epaysdk.core.config.MerchantConfig;
 import com.nbsb.epaysdk.core.http.EPayHttpClient;
 import com.nbsb.epaysdk.epaybase.Impl.YZFExecute;
-import com.nbsb.epaysdk.epaybase.common.util.EpayBody2Map;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import static com.nbsb.epaysdk.epaybase.common.util.EpayBody2Map.Map2Bean;
 
@@ -61,11 +57,7 @@ public class EPayYZF extends AbstractEPay {
 
     @Override
     protected OrderInfoResponse doQueryOrder(Query query) {
-        query.setKey(config.getAppKey());
-        query.setPid(Integer.valueOf(config.getAppId()));
-        Map<String, String> map = new LinkedHashMap<String, String>(EpayBody2Map.beanToMap(query));
-        map.put("url", config.join(queryPath()));
-        String res = execute.queryOrderInfo(map);
+        String res = execute.queryOrderInfo(orderQueryParams(query));
         return Map2Bean(parseObjectMap(res), OrderInfoResponse.class);
     }
 

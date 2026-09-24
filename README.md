@@ -10,6 +10,8 @@
 
 Java 包名仍是 `com.nbsb.epaysdk`。仓库里的 POM 开发版本仍是 `0.0.1-SNAPSHOT`，请用上面的 Central 坐标依赖已发布制品。
 
+`0.0.1` 不包含此后在 `main` 上的修正：商户密钥日志脱敏、查单不回写调用方对象、退款拒绝 0 元、`spring-boot-starter-web` 改为可选、HTTP 响应用完即关闭。下面的用法按当前仓库源码描述。要让调用方拿到这些行为，需要重新发布。
+
 示例仓库：https://github.com/nb-sb/epay-sdk-example.git
 
 ##  🕊️ 快速开始
@@ -34,11 +36,13 @@ implementation 'io.github.nb-sb:epay-sdk:0.0.1'
 
 制品页：https://central.sonatype.com/artifact/io.github.nb-sb/epay-sdk/0.0.1
 
-本地调试仍可用 `jar/` 下的包。不要用旧的 `com.nbsb:epay-sdk` 坐标。
+本地调试仍可用 `jar/` 下的包。不要用旧的 `com.nbsb:epay-sdk` 坐标。`jar/` 里的历史包也没有上述修正。
+
+`spring-boot-starter-web` 是可选依赖，不会传递进来。不用 Spring 时，只引本 SDK，用下面的 `EPayClient.builder()` 即可。Spring Boot Web 工程本身已经依赖 `spring-boot-starter-web`，配好 `nbsb.pay.account.appId` 就会自动装配。如果应用没有自己声明 Spring Web，又想用自动装配，需要自行加上 `spring-boot-starter-web`。
 
 ### 2. Spring Boot 配置
 
-配置了 `nbsb.pay.account.appId` 后会自动装配 `EPayClient`。也可继续用 `LoaderConfig` 写入静态 `AccountConfig`。
+应用 classpath 上有 Spring Boot，且配置了 `nbsb.pay.account.appId` 后，会自动装配 `EPayClient`。也可继续用 `LoaderConfig` 写入静态 `AccountConfig`。
 
 ```yaml
 nbsb.pay.type: yzf   # yzf | mzf
@@ -75,7 +79,9 @@ MapiResponse mapi = client.mapi(cmd);
 OrderInfoResponse order = client.queryOrder(Query.byOutTradeNo(cmd.getOrderNo()));
 ```
 
-`GetQRCmd` 必填：商品名、商户订单号、金额、支付方式、`notify_url`、`return_url`。查询类型：`Query.byTradeNo`（易支付订单号）或 `Query.byOutTradeNo`（商户订单号）。
+`GetQRCmd` 必填：商品名、商户订单号、金额、支付方式、`notify_url`、`return_url`。金额最多两位小数，且必须大于 0，`0`、`0.0`、`0.00` 会抛 `EPayValidationException`。查询类型：`Query.byTradeNo`（易支付订单号）或 `Query.byOutTradeNo`（商户订单号）。
+
+`queryOrder` 不会修改传入的 `Query`。商户号和密钥只放进发往网关的参数，不会写回这个对象，调用后 `getKey()` / `getPid()` 仍是原值。
 
 ### 4. 易支付（YZF）其它 API
 
@@ -89,6 +95,10 @@ OrderListResponse recent = client.queryOrders(new OrderListQuery(20));
 
 OrderInfoResponse paid = client.waitUntilPaid(Query.byOutTradeNo(cmd.getOrderNo()), 60_000, 2_000);
 ```
+
+退款金额和支付金额用同一套规则：最多两位小数，且必须大于 0。`0`、`0.0`、`0.00` 在请求网关之前抛 `EPayValidationException`。
+
+易支付的查单、退款、商户查询、订单列表按网关协议把商户密钥放在 query string 的 `key` 上。SDK 自己的 debug 日志会把 `key` 打成 `***`。生产环境不要把 `org.apache.hc.client5.http.wire` 开到 DEBUG，HttpClient 的报文日志仍会打印完整 URL。
 
 码支付（MZF）只实现 `mapi` 和 `queryOrder`。`submit` / `refund` / `queryMerchant` / `queryOrders` 会抛 `EPayUnsupportedException`。
 

@@ -31,7 +31,7 @@ public final class RequestValidator {
         if (!AMOUNT.matcher(cmd.getAmount().trim()).matches()) {
             throw new EPayValidationException("金额格式非法，需为最多两位小数的数字: " + cmd.getAmount());
         }
-        if ("0".equals(cmd.getAmount().trim()) || "0.0".equals(cmd.getAmount().trim()) || "0.00".equals(cmd.getAmount().trim())) {
+        if (isZeroAmount(cmd.getAmount())) {
             throw new EPayValidationException("金额必须大于 0");
         }
         if (cmd.getPayType() == null) {
@@ -64,6 +64,14 @@ public final class RequestValidator {
         if (!AMOUNT.matcher(cmd.getMoney().trim()).matches()) {
             throw new EPayValidationException("退款金额格式非法: " + cmd.getMoney());
         }
+        if (isZeroAmount(cmd.getMoney())) {
+            throw new EPayValidationException("退款金额必须大于 0");
+        }
+    }
+
+    private static boolean isZeroAmount(String amount) {
+        String trimmed = amount.trim();
+        return "0".equals(trimmed) || "0.0".equals(trimmed) || "0.00".equals(trimmed);
     }
 
     private static void requireUrl(String value, String field) {

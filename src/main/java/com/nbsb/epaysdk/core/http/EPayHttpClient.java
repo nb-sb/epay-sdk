@@ -7,8 +7,8 @@ import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.entity.UrlEncodedFormEntity;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
-import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.NameValuePair;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * Shared HTTP transport. Does not mutate caller maps.
@@ -32,6 +33,7 @@ import java.util.Map;
 public class EPayHttpClient {
 
     private static final Logger log = LoggerFactory.getLogger(EPayHttpClient.class);
+    private static final Pattern KEY_QUERY_PARAM = Pattern.compile("(?i)(^|[?&])(key)=[^&\\s]*");
 
     private final CloseableHttpClient client;
 
@@ -77,16 +79,16 @@ public class EPayHttpClient {
     }
 
     private String execute(org.apache.hc.client5.http.classic.methods.HttpUriRequestBase request) {
-        try {
-            ClassicHttpResponse response = client.execute(request);
+        try (CloseableHttpResponse response = client.execute(request)) {
             int status = response.getCode();
             String body = response.getEntity() == null ? "" : EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
-            log.debug("ePay {} {} -> {} body={}", request.getMethod(), request.getRequestUri(), status, body);
+            log.debug("ePay {} {} -> {} body={}",
+                    request.getMethod(),
+                    redactSensitive(String.valueOf(request.getRequestUri())),
+                    status,
+                    redactSensitive(body));
             if (status < 200 || status >= 300) {
                 throw new EPayHttpException("支付网关 HTTP " + status + ": " + body);
-            }
-            if (body == null) {
-                throw new EPayHttpException("支付网关返回空响应");
             }
             return body;
         } catch (EPayHttpException e) {
@@ -94,6 +96,16 @@ public class EPayHttpClient {
         } catch (IOException | ParseException e) {
             throw new EPayHttpException("请求支付网关失败: " + e.getMessage(), e);
         }
+    }
+
+    /**
+     * Hides the merchant key. 易支付 puts {@code key} on the query string; debug logs must not keep it.
+     */
+    static String redactSensitive(String raw) {
+        if (raw == null || raw.isEmpty()) {
+            return raw;
+        }
+        return KEY_QUERY_PARAM.matcher(raw).replaceAll("$1$2=***");
     }
 
     private static List<NameValuePair> toPairs(Map<String, String> params) {

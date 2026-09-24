@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.nbsb.epaysdk.epaybase.common.util.EpayBody2Map.Map2Bean;
+import static com.nbsb.epaysdk.epaybase.common.util.EpayBody2Map.beanToMap;
 import static com.nbsb.epaysdk.epaybase.common.util.EpayBody2Map.cmd2EPayBody;
 
 /**
@@ -197,6 +198,17 @@ public abstract class AbstractEPay implements EPay {
         body.setIs_mzf(isMzf() ? "true" : "false");
         body.setSign(SignUtil.Body2Md5(body));
         return body;
+    }
+
+    /**
+     * Gateway query parameters. The caller's {@link Query} is not modified, and the merchant key stays off that object.
+     */
+    protected Map<String, String> orderQueryParams(Query query) {
+        Map<String, String> map = new LinkedHashMap<String, String>(beanToMap(query));
+        map.put("key", config.getAppKey());
+        map.put("pid", config.getAppId());
+        map.put("url", config.join(queryPath()));
+        return map;
     }
 
     protected abstract OrderInfoResponse doQueryOrder(Query query);

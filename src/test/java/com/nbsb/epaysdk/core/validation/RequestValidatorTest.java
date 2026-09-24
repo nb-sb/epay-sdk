@@ -41,4 +41,12 @@ class RequestValidatorTest {
         assertThrows(EPayValidationException.class, () -> RequestValidator.validateQuery(new Query(3, "x")));
         assertThrows(EPayValidationException.class, () -> RequestValidator.validateRefund(new RefundCmd()));
     }
+
+    @Test
+    void rejectsZeroRefundAmount() {
+        assertThrows(EPayValidationException.class, () -> RequestValidator.validateRefund(RefundCmd.byOutTradeNo("ORD-1", "0")));
+        assertThrows(EPayValidationException.class, () -> RequestValidator.validateRefund(RefundCmd.byOutTradeNo("ORD-1", "0.0")));
+        assertThrows(EPayValidationException.class, () -> RequestValidator.validateRefund(RefundCmd.byTradeNo("T1", "0.00")));
+        assertDoesNotThrow(() -> RequestValidator.validateRefund(RefundCmd.byOutTradeNo("ORD-1", "0.10")));
+    }
 }
