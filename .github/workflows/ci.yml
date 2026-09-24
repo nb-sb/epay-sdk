@@ -1,0 +1,52 @@
+name: Java CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: JDK ${{ matrix.java }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        java: ['17', '21']
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: 配置 JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+          cache: maven
+          cache-dependency-path: |
+            pom.xml
+            epay-sdk/pom.xml
+            epay-sdk-spring-boot-starter/pom.xml
+      - name: 验证
+        run: mvn -B verify
+      - name: 检查发布附件与许可证（不签名、不上传）
+        shell: bash
+        run: python3 verification/check-artifacts.py
+      - name: 独立复核固定签名向量（不联网）
+        run: python3 epay-sdk/src/test/resources/epayv2/public-rsa/generate-fixtures.py --check
+      - name: 缓存独立消费者的隔离 Maven 仓库
+        uses: actions/cache@v4
+        with:
+          path: target/pure-java-verification/repository
+          key: pure-java-maven-${{ runner.os }}-${{ matrix.java }}-${{ hashFiles('pom.xml', 'epay-sdk/pom.xml', 'verification/pure-java/pom.xml', 'verification/pure-java/run.sh') }}
+          restore-keys: |
+            pure-java-maven-${{ runner.os }}-${{ matrix.java }}-
+      - name: 独立无 Spring 消费者验收（仅环回 HTTP、不发布）
+        shell: bash
+        timeout-minutes: 10
+        run: bash verification/pure-java/run.sh

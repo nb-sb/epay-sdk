@@ -1,0 +1,207 @@
+{
+  "notice": "公开测试密钥，绝非商户凭据；文档派生合成样本，非真实联调，禁止用于生产",
+  "evidenceDate": "2026-09-24",
+  "generator": "OpenSSL 3.6.2; RSA-2048; SHA256; PKCS1-v1_5; UTF-8",
+  "keys": {
+    "merchant-a": {
+      "privatePem": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCv4zs/JO/Xs3aZ\npFak3C/UqxAdEGX0tTs1JZQknm5oPzHi4EWyCXCji3VAxoL/k929QqNxDmNqKvrG\nn48m9nz9wy0TWjdX8qrhJvoZ4avp0goVAW/rSwqGErigOvTakHFlEjG2jTU2U7+a\n6f5TaN9bQpaBGfSntDoaW3ruwtT0txaqcNDmztgS/FNwl/n2FCJ4vHjDy/MY+YZ9\ncmUo8kO62cg+v8FkoVd4HomT8VSNmcIBhdoq3DJBqXd2KdpF3rvEzA5zOLXI7tJc\n3JsGqPJhsO6geIMImxPs8pgzP1RXBfj2FQ6KM0G8IT3aF/YegKFuSgUxU1aT77rT\ntRlfwluxAgMBAAECgf8VAyXQ0AOB1q6/LCLYZHWnsnKlBjsn6368mqtYCeqmtDtW\nyfQ0O2x5cppPYr0Y9fvyNZkmUycNR+qC+reKBWhpPdKPZ/e0n15KskgD+jHPfTLh\nz4okpz0FR2Hxwm6orcOI5OOLgNMalRFkMGVxvCry0WxUKrBPrfhDAyrB21oVjJcV\nYsM6ItxW1yd3ENpnqILlklW0ruCKSbcpvntQ16NHv45+cWR81OUjr87lfqyyWFUY\nqweFL7G/hhpulS9y+eUSajuaSI0TXnTRgwDwjzs5Xewf5o2h6PItbRqG5hXvzrFX\nURsuEqSRQJdoi++2noiVdY06AQSK+4FtPjxmllECgYEA45mmySIoRP2fg98sYDx3\nS/Dho8nj4vBvP1YAjvZOQJB3JmUMebrIa8M89YXB4+TmIhL06JmduceMegctvEaF\nKhPqnFcnvr6i5cPomAWKlirlQkGk59SCzzamnDTyYaZKt+kjzDqgJX0GcoI4p/aI\nGaHtkfjLomZaytjqaP2+pRkCgYEAxdWy528AhVaktrBdFApuzbMbKSZmUqYctyv3\n8v5nBDth56uqdvr6r/XEBcG1eNJj3GlUmX6yj1jlu4lUa9se4ubJ9+Qga1C4eVQp\n0TAF6NZoym+nkSk9+gpf9APcZcR1z4Cnwq+7p/o6P+I55AuaYziKv8qMoljUAi25\nSKOrZlkCgYADLJdo4rMRE0BwRGKIDQ/U3U0oTZ6CAbxrc7WaSNEakWk3/dzIrdQx\nvI1TF0R2+zBCdWU5ATtz5daNtR/sKkedKJ3zBDwnqtz2u165EAq4wWxlGilEmnAg\nl7CHKS3gMsOEARpgtMia/T1jx3Em1odbZCi+Cmw8nZTSk2fhgvhvsQKBgQCU5iiH\nBAbSVMoYLll/8fI/o+R3bk1pO1k1jERMgamrh75CjfP5JSF1OnbVFlytmTxL8oMY\nHEHsni4anlwJ6ZwvjyDIEM1NuC2ANBZdOdXYzzeD1dG68d2Ryik6EYXamqlJCj45\ny+ZjoXQiDPUhbJJAx5e2jo6WymCXWy6vO3CP0QKBgQCJaM03ipBBz9Psu6Apwaf4\nU+M8FVG9VUjurvIaWz70Vv865r63B97m18prXqJpwKI40jjkDa/z/RYlTK4AMzY1\nSgXTJW6uLZgJboja3hQoLYE3Sz+V+vv1VHShJxidvE+sjELSPIqL5aVg6pfWxdGV\ndIeSLtxdwCsDUKVkElyPuw==\n-----END PRIVATE KEY-----\n",
+      "publicPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr+M7PyTv17N2maRWpNwv\n1KsQHRBl9LU7NSWUJJ5uaD8x4uBFsglwo4t1QMaC/5PdvUKjcQ5jair6xp+PJvZ8\n/cMtE1o3V/Kq4Sb6GeGr6dIKFQFv60sKhhK4oDr02pBxZRIxto01NlO/mun+U2jf\nW0KWgRn0p7Q6Glt67sLU9LcWqnDQ5s7YEvxTcJf59hQieLx4w8vzGPmGfXJlKPJD\nutnIPr/BZKFXeB6Jk/FUjZnCAYXaKtwyQal3dinaRd67xMwOczi1yO7SXNybBqjy\nYbDuoHiDCJsT7PKYMz9UVwX49hUOijNBvCE92hf2HoChbkoFMVNWk++607UZX8Jb\nsQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "platform-a": {
+      "privatePem": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCqlX6zmDd2BqgY\nHy1x6cuZKZ1fVJnZyJ64rAaA8OHW5A8xiV2IupndXIChVOKiT+QqJIbC13ykfv7T\nOT5XkqOhjxeBuB46uTCBumb01xPVDlH+OfZm/Asc8Fx4y8UOiWW+Vztuic+BofSh\n+Mw9Wx3IooEUoqEwcdxJNTaBAFwitHtpQDVsCj4TgVtbq6sAlGeC6cyCvSyh3ARx\neUS6LyLieGCDvP9vw+KFS6NF6TPColAO5O8vPbOND9pal4ZRLzXAiTRZKWDO7u0y\nI/ie2hv9gB9BXvQ2WLz260NX3lAOWb72uHWv4ztq1WkrXFnPChs3KWAD22Qhnnzz\nt/3BjSaPAgMBAAECggEAP6wuj33lUcZZTyuwDGGe0AxjBBbxmIOUj00S3mVLfylA\nbJagFa3FSgXBs7aaI8jbW0moDaleio4msxQea5S+REtDlHVzvyqp6vp3fLOdYP0H\n6POcwEMbKNGlSqeQ5gSuOBaahf+lt3cK97yFC+/rVZ0mvluX/Bu8BI16yzslqQQE\ntZjeSSN/PB+Q7tGUBixyrBxeRgqFLxlEEnrhb6aynP6pkbD4QPPiPySall3K9vSc\n/SN1Er+3mk0zHtjPJBhFUQ5LmmonaWKcTfsjNWV8tDNzRsmkkAvRrKRGtjIj/3x1\nKEopoj66Tq9akVEAFHmU0s018SV1TVDPBnGAM7hBDQKBgQDwXNBAddalgbBQ+Hdj\nIEpSRKiO1DASKZxUaAkFjRXlJE32FkQZrAs0FBQv2hdK2cNBSdR9sFbvh6FlFr5a\nbRLIo3BEQtUQr3sdxGE6GaIPL+hj29ci/B7gGfNhYcILlZjwRXPpaKugwZuGA3Xq\nBcUZp55mVCQ0s4kiMq+VjibpzQKBgQC1roi6j83HMfQ72KccDnoZFqT35Z7CvuH/\nerT0ojdZ+FvQqWZP8B96HJvReG0iNqAcf0oXwZYqdShpUvCI4PjzaFWXX4zcxvnQ\nBOGRH3SMD4v24I16/RiSP4XeOG28Rg5R88uu6xW2c6YdGp/kqNjo9sZEeIOFJrNU\nnnDF3uPFywKBgQDILySqavoIAckMxsL35c7AUbpoqkQW/Fzc14CcBPL1UpUznTu+\nfdEe4JIngGXhyxeZapn0zEa7W6SJgrWqrij0vVolH9w/90Z8di/bqbmVGHtdn5y/\n4Gb+kd5nfnmUGFW11sJA5RH74wNaS8uKyp9rTHTaGL3Gvrg5qSkfT7MNCQKBgCqW\nKNKiVrf0i61jkXhQJGqxFiZNmrNHjy4Vk0kspRDf2JXGv4bJYHd9MUEem2ZDq7BC\nXhnHdO2q3LgjiuJq6bAUqst6yEgQFAqgukcMOoOCOWq7JC7KGPJfFYALdh2FxmGL\nZhkwXbyQy0VTMlulAINLJRpzrVCOy8ZwBTs8jeOVAoGBAO1khxLA1vEuQ+7osUXb\npqy853v3HGr48WEUXtAr3yYzmRcEfvaX74k7tJJ5pl6THMf4kclhPAg9CB3CYcxE\nHgZCoY+qxlDGq1c9FPEBQ+E4ox1szVnUtQEW0a9ur40lO+jtUhMx0Gh1fJa2z49u\nOen8PQkP3Lz6OgW8oUodxOGb\n-----END PRIVATE KEY-----\n",
+      "publicPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqpV+s5g3dgaoGB8tcenL\nmSmdX1SZ2cieuKwGgPDh1uQPMYldiLqZ3VyAoVTiok/kKiSGwtd8pH7+0zk+V5Kj\noY8XgbgeOrkwgbpm9NcT1Q5R/jn2ZvwLHPBceMvFDollvlc7bonPgaH0ofjMPVsd\nyKKBFKKhMHHcSTU2gQBcIrR7aUA1bAo+E4FbW6urAJRngunMgr0sodwEcXlEui8i\n4nhgg7z/b8PihUujRekzwqJQDuTvLz2zjQ/aWpeGUS81wIk0WSlgzu7tMiP4ntob\n/YAfQV70Nli89utDV95QDlm+9rh1r+M7atVpK1xZzwobNylgA9tkIZ5887f9wY0m\njwIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "merchant-b": {
+      "privatePem": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2WITGT3TEjF0M\n1U97AMWiWRwJwjy+7zlgx5yr8GGf83VY1OHOsjOyzKj6+ZNIlpCyXzhgnmfd885v\ntfLIHTqWWPSU+qhZeyIHJE5I6dQirYWNBehy1WFwDENXPU4P7TBW/mN5nLvOUF5m\nS+ZugSUee81JY8+5x6FzkqKiFOOA58XefO3ThziWTJ/s+7c5Qdibk+wATdHKgQtk\ngkjJOf66q08VD2H0ml6LySQ8rIn0xn+SKnqzb1bTI+raKnRztiMO7akYELUBMRHh\nJIaEfQ16xMsUZK5S4Bku1fn9MMAdHInMe/JonU6LFSGm2Q8Wa1VPYysK65OzcCec\n8MoZvtwfAgMBAAECggEATJhIRakQqpMvbvmXZlq/qd92iJ7ft3BzkLSomgziZTb2\nHvdlVtbCIqQXgz0c4gvlAhg/bU584N3N5Fzwe6DTgF4jdwUHfHbdp1RX0gbuxhZP\nmBpYNwxs3o04KEgnJ0eB27kF/gqZVSOrU5skU1zKQ9DLPb3AfxBdQFfjGuRdYELF\nFLM3SsDOopXYdQGIDh9HfNuKN1jNj3fpakOCKkt3ATFFXwzjr9ROTldU9EOOXbwM\nycFkTp5oofKmh/2MbTXiKJeW3+8mhJgJP+ly4BohCCiAa3UQaRd+cYCTvu1VsrKf\neQl1TI6BSCbSlfjBuCJ+MV4UOZD74PmVCu8awB8c4QKBgQDucY4GxXAs1lALQzLr\ntBFi5BeinTVsj3IQ+bMBoJDTpbZnhI/42sSmgBT02BxG3RG6K+Nw63NP7Us+Hcok\nR9qsXGzcNA/7SblUxyOhSS/A1kGvARGbt3MP0nXsEoUQOupMWO0utbpqeeWBH7Qv\nr5Rd6CQw2e0ofoSye28VsXgTrwKBgQDDxZI8OjuZB8Nq6SsbQWwb6+yE4CulVAEM\nh9VdcRZK6D4+JafiK8EvUlXU86WZG7g0+8MGZWoqUyXFSg8zcFM1BXSAmo6Nzs3E\nj2HCPhw8MIRn/GWzTBz7vMfcJsou0YnKjXdTvprvPR/K9mNgQ04f2OF3reGa/wHs\nqLnnOc8qkQKBgCTvojiaTQ4lBLE576Fje23+N0sRXz0520mV5IzT+ptOiDrw5fx+\npwfDv3tOHtM7W4ujUNAlKO+wqn8szitglhctGg/iYLdkbDkdv/8z/xm4FuStHbUp\nbcF9sJapJ8Oj3LeG7vbVX9Munsapype4cxs44qJOn9YuAxBC3qpVm2wxAoGAYm/g\ndOou92aA6yvs4dqGeo+pMLLrH0la8asHLOHk/KtESMl0XfP0QlAbGmWceZ0HhZSl\n3nx14mxGjKoNdKbhH8LrbpLIZSN8MX6LADlsxxL6MLMni/0UgbvNnrPea6Yuq6tw\nOaqYivzoFIzJMSkGilrqG9xRmTbqB85bE5nswhECgYEA4pWP4q9l2LGa5NHBp+H+\nvoxctBbXgBowNRY3mKIl6bDuWVVe9+wTOfoaL4zGUY5znTY8SO1zbqF3ECzbjors\n0A3RWnqI0LM3LL22uzX/vTOtueoVEPQCiM535N5WQKYQ4iH+KdBoxqZqHmSiIcMp\nsFNLnLvkKbuKearN8jOEQWg=\n-----END PRIVATE KEY-----\n",
+      "publicPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtliExk90xIxdDNVPewDF\nolkcCcI8vu85YMecq/Bhn/N1WNThzrIzssyo+vmTSJaQsl84YJ5n3fPOb7XyyB06\nllj0lPqoWXsiByROSOnUIq2FjQXoctVhcAxDVz1OD+0wVv5jeZy7zlBeZkvmboEl\nHnvNSWPPucehc5KiohTjgOfF3nzt04c4lkyf7Pu3OUHYm5PsAE3RyoELZIJIyTn+\nuqtPFQ9h9Jpei8kkPKyJ9MZ/kip6s29W0yPq2ip0c7YjDu2pGBC1ATER4SSGhH0N\nesTLFGSuUuAZLtX5/TDAHRyJzHvyaJ1OixUhptkPFmtVT2MrCuuTs3AnnPDKGb7c\nHwIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "platform-b": {
+      "privatePem": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCyH+yRCjq0ko+2\nsngbiCaQAfcQxfdX9IPQMfRw1aA2+1LgCdThQ6tOqHWZD7KBUDYild98MIqTQFPi\nTxOQAS43sj9e27WR+8uRtGkPDyxnpRKbMXX6VR4iiHR7NR5XYgsZdsL+dTLF3Ecl\n8BswQaSVaomLAhzI1QA/KJzITMjMw3ajVVqsjgogdnszezOPfRKFdl2sIV8Cl7Hz\nRAV87lOfeIWQrAl3uT71pc3qHOickK/rAm+B5oyXOhl1EIjqRpkpLHAXil22GeAN\nzSRcTqfXGMKGbTjShFEnpovO8O30TZveUaxEMW3ipafOA5/4xlswzupk1M50Qix7\nRMiwylRJAgMBAAECgf8MFjVJoj49qdK2WfFLNnmAwLCXbvr6pXgjvgW9nUUkt9xs\n2zZTnjXxJEBh+zPFJZQmgDUk8nx0vlHmLiFM+7C2YE8Ay+VNLvo/slW1pHvDAUay\nut72tvr6hXWAYvgh9dJ8amO8oSgMZf4xHHFJzB3UxlqCRatLgNJrYnNBD++2PCae\nvzG+CBEws0yFIUfUpRwCWZfBnJC5GTFxr1XkP+6jdKtyF+UDKQVh8B4aKOs3IVly\nOBmMUTjTFrFymAJRPJE/qWRRixjOyFguy8OSVDrA+qRjFiQj0mOcvjCcn/YMkLGS\nqgJvIUlQZBS0O//NSjqHvyP8eriE+1E0FYNoRAECgYEA6RBAwWIhG0JdIvvml5R+\nVM7icMQpe1YRNbl5YX8JM8YhUg1j+bYwP6GnOE9UEuM2znAJsxx/P17adUQU4ooA\nSPy1VN5kxU5qTHcNvqq0txczLbbCT7J4TL26gLqEaUaM8r6GjxgqF1D3SjYw3EhI\n2zDiZ7HhWAJX8uEydzlzGQECgYEAw6eOZZRIyG9sPGH+ahNKxLT83UJ8KN15DnVe\njxfsiU+4gTQwJtuAewNTpd2bzcmNrFY2p3WCLnViAbIwhjMR88+AH9Gz3TUnGIM9\n9PXB7syU0itumS95mxbG6ANiGuJBygjLERLFyPwi0aa6wfzFa+MbKjN7Pt7FdIUz\n5Kv9M0kCgYAJhR1wCMcbavGM/UclB+7FHhJH0uty20gmrqXTorHIiJ5R0LQ1vgho\ngPzoouznPJq/gfoTc+WKvCAmTBqiSkrKsG/jwJXTLWnQJ8jK8gQhunPfuShkwwCA\n+fsFSRkhh704KSor7CvD+g2v3VjPlrBLK8sDu1NeGfJnvGUoU5NtAQKBgGIETxIU\nd2HycAbQEOSTRaHGCefOpuTSDxNvOS/2jEk95vDTdEwDKxp1UDKIEsXFc3QivL6n\n38/mfnLbEfQpIZVDHqzSIYlwV2WwWhmeBMndM7EWkRGs9v77KiqRh1RwhQTx4slq\n3isSJV9iZ61HNKAX5kP+BoA4mjMFiDnG79IBAoGBALQRbTlGd/jjNfSPW3llHPms\nyPenqloR0OH5xPv6AFFreE4TNi8sNJ98hVS//ht2RoyG5u8OtNYIzwn52NwxCkel\ne6YjwxVj5Swz4v5dswr0NngiIIvhA5Gs3kogDZ0zMLMwymEywZkAVjQzMzD8BQ7A\nrnSQzv3p7iPYkKubKtl7\n-----END PRIVATE KEY-----\n",
+      "publicPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsh/skQo6tJKPtrJ4G4gm\nkAH3EMX3V/SD0DH0cNWgNvtS4AnU4UOrTqh1mQ+ygVA2IpXffDCKk0BT4k8TkAEu\nN7I/Xtu1kfvLkbRpDw8sZ6USmzF1+lUeIoh0ezUeV2ILGXbC/nUyxdxHJfAbMEGk\nlWqJiwIcyNUAPyicyEzIzMN2o1VarI4KIHZ7M3szj30ShXZdrCFfApex80QFfO5T\nn3iFkKwJd7k+9aXN6hzonJCv6wJvgeaMlzoZdRCI6kaZKSxwF4pdthngDc0kXE6n\n1xjChm040oRRJ6aLzvDt9E2b3lGsRDFt4qWnzgOf+MZbMM7qZNTOdEIse0TIsMpU\nSQIDAQAB\n-----END PUBLIC KEY-----\n"
+    }
+  },
+  "vectors": {
+    "submit-request": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "页面跳转支付",
+      "key": "merchant-a",
+      "canonical": "money=1.00&name=商品 &+\"测试\"=/%&notify_url=https://shop.example/notify?a=1&b=%2B&out_trade_no=订单 &+=&pid=1001&return_url=https://shop.example/return&timestamp=1790208000",
+      "signature": "HvajMSZzdOY2WenjCYICDqW/zR9SHXPl5xfUIAkzN2m5RfoG9B+HCUwfwQQHaAyhPaAMubHAz+M2WVArNOgEdadUSnrBcOeAG4At8nNxIwvcMsTDMTJSDeQn7uyvERzzR6XbivrDGpwFp+XV/nHimuh7Mi9s6+u9ddUyE8DcvBmcnpgPWuBUgu4Mbsazquy2fyEBcB8MSsqvJ1hG5w+P1I6Y7a88gaSRQOqvvIZf7yxAO9FgasO1CAT20KN8WhVcyE61BVnh6BQKMkC7RNVGZyvEe2klKqWA53/OBEI6XRRvxV9Oecpcuqy723DmkMqE6sl7JzvVW7QX0ZOFMWhc2A==",
+      "parameters": {
+        "pid": "1001",
+        "timestamp": "1790208000",
+        "sign_type": "RSA",
+        "money": "1.00",
+        "name": "商品 &+\"测试\"=/%",
+        "notify_url": "https://shop.example/notify?a=1&b=%2B",
+        "out_trade_no": "订单 &+=",
+        "return_url": "https://shop.example/return",
+        "param": "",
+        "sign": "HvajMSZzdOY2WenjCYICDqW/zR9SHXPl5xfUIAkzN2m5RfoG9B+HCUwfwQQHaAyhPaAMubHAz+M2WVArNOgEdadUSnrBcOeAG4At8nNxIwvcMsTDMTJSDeQn7uyvERzzR6XbivrDGpwFp+XV/nHimuh7Mi9s6+u9ddUyE8DcvBmcnpgPWuBUgu4Mbsazquy2fyEBcB8MSsqvJ1hG5w+P1I6Y7a88gaSRQOqvvIZf7yxAO9FgasO1CAT20KN8WhVcyE61BVnh6BQKMkC7RNVGZyvEe2klKqWA53/OBEI6XRRvxV9Oecpcuqy723DmkMqE6sl7JzvVW7QX0ZOFMWhc2A=="
+      }
+    },
+    "create-request": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "统一下单接口",
+      "key": "merchant-a",
+      "canonical": "clientip=192.0.2.1&is_applet=0&method=jsapi&money=1.00&name=商品 &+\"测试\"=/%&notify_url=https://shop.example/notify?a=1&b=%2B&out_trade_no=订单 &+=&pid=1001&return_url=https://shop.example/return&sub_appid=wx-test&sub_openid=用户 &+=&timestamp=1790208000&type=wxpay",
+      "signature": "Hr85AxTXEnGnckrhIWvyIjsm+3I9u5K+usilISuCwHL3hf/VsUaZn3TtG5a4+O3v9YiFO2u+MCPBBvIiFASbxg443oVsyM7SEGHtNi8IGefi694IpaqpmK5Lox7KG0M9V3gzz8tgRIBLz5fY/GCU/5gjxZNEnDah+kJfaZLT1mxCNH1Nm6UmGecWFwK+tTQIAPSGmaGCDZkBMOICI8YVP28UgpmmwvAYmxMYBkD9FXfPXJmi0JpQ9mVF+YJWSlFPB/Ow6+U0R5WQDNG24Z/6VJgFbGl9zinleUGrrUhHgqNJVWP6RprlG4mvHDdY2utoqV04mDeacN4JnkiNeK92iQ==",
+      "parameters": {
+        "pid": "1001",
+        "timestamp": "1790208000",
+        "sign_type": "RSA",
+        "money": "1.00",
+        "name": "商品 &+\"测试\"=/%",
+        "notify_url": "https://shop.example/notify?a=1&b=%2B",
+        "out_trade_no": "订单 &+=",
+        "return_url": "https://shop.example/return",
+        "param": "",
+        "clientip": "192.0.2.1",
+        "is_applet": "0",
+        "method": "jsapi",
+        "sub_appid": "wx-test",
+        "sub_openid": "用户 &+=",
+        "type": "wxpay",
+        "sign": "Hr85AxTXEnGnckrhIWvyIjsm+3I9u5K+usilISuCwHL3hf/VsUaZn3TtG5a4+O3v9YiFO2u+MCPBBvIiFASbxg443oVsyM7SEGHtNi8IGefi694IpaqpmK5Lox7KG0M9V3gzz8tgRIBLz5fY/GCU/5gjxZNEnDah+kJfaZLT1mxCNH1Nm6UmGecWFwK+tTQIAPSGmaGCDZkBMOICI8YVP28UgpmmwvAYmxMYBkD9FXfPXJmi0JpQ9mVF+YJWSlFPB/Ow6+U0R5WQDNG24Z/6VJgFbGl9zinleUGrrUhHgqNJVWP6RprlG4mvHDdY2utoqV04mDeacN4JnkiNeK92iQ=="
+      }
+    },
+    "query-request": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "订单查询",
+      "key": "merchant-a",
+      "canonical": "out_trade_no=订单 &+=&pid=1001&timestamp=1790208000",
+      "signature": "nd7VuMUA28nwh+YfUC1OAZT21OqORbG/mpVrzmFH9s0IQ2UCV8SD4qyAqkzBe4/7J5L/8pALTcq3tYTdXDNJ/bOtsyK+b2Rq+odG8tcMsomxcdZjStEhQn9sqW7qWXSjfYYYcDgZzyUK0jZbvc6F6bFLdMcgFrOEOfmVCALBceGVWrwSG/NwZIaC9B+YwThfwZZ7CfTjzBeVCP1FReLudiy5JCPfyJMrtkSXytgfBYtd05jts+6Z0Y3PIBVJbfvDccG7AP6Nao7CELsvHuOaX0ZKh1n7TyGfX6sN6j14gJVquOF7fyg8IJxPRotHEPUTwrPykeznRxuOmJ4Eh5O6AQ==",
+      "parameters": {
+        "pid": "1001",
+        "timestamp": "1790208000",
+        "sign_type": "RSA",
+        "out_trade_no": "订单 &+=",
+        "sign": "nd7VuMUA28nwh+YfUC1OAZT21OqORbG/mpVrzmFH9s0IQ2UCV8SD4qyAqkzBe4/7J5L/8pALTcq3tYTdXDNJ/bOtsyK+b2Rq+odG8tcMsomxcdZjStEhQn9sqW7qWXSjfYYYcDgZzyUK0jZbvc6F6bFLdMcgFrOEOfmVCALBceGVWrwSG/NwZIaC9B+YwThfwZZ7CfTjzBeVCP1FReLudiy5JCPfyJMrtkSXytgfBYtd05jts+6Z0Y3PIBVJbfvDccG7AP6Nao7CELsvHuOaX0ZKh1n7TyGfX6sN6j14gJVquOF7fyg8IJxPRotHEPUTwrPykeznRxuOmJ4Eh5O6AQ=="
+      }
+    },
+    "refund-request": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "订单退款",
+      "key": "merchant-a",
+      "canonical": "money=0.50&out_refund_no=退款 &+=&pid=1001&timestamp=1790208000&trade_no=T1",
+      "signature": "QbxDbSjJ7wuot3vYXofRids3/5dHB7mel4AIa2E7XyayKyjgselKG7m7PLSAYe3igIFPju7c/1DBLVnSZVf1GcLljwo0Wds1YCQakLBvDNa/H+03PN8ML8WV+TE7MGz+agLWLZbfBEJI36QOEUmP+4Zq19PCMtHCYfvwh/ShWSC5gjW5E6UvqNqd34Pb2tjRubm8BdVgjCtquAH1AFlXHqG/wJ8a67hjwmGh9ZYMnCL2R58ezGxpiPbAv4jBr+6O/SGh4sRRxSTun7H2RrN+XD2g0uHa8eb9p2+FsiTVWfjARXCdc6M263MLwLW35VbjJLBNxg4jYZEofohUYop1VQ==",
+      "parameters": {
+        "pid": "1001",
+        "timestamp": "1790208000",
+        "sign_type": "RSA",
+        "trade_no": "T1",
+        "money": "0.50",
+        "out_refund_no": "退款 &+=",
+        "sign": "QbxDbSjJ7wuot3vYXofRids3/5dHB7mel4AIa2E7XyayKyjgselKG7m7PLSAYe3igIFPju7c/1DBLVnSZVf1GcLljwo0Wds1YCQakLBvDNa/H+03PN8ML8WV+TE7MGz+agLWLZbfBEJI36QOEUmP+4Zq19PCMtHCYfvwh/ShWSC5gjW5E6UvqNqd34Pb2tjRubm8BdVgjCtquAH1AFlXHqG/wJ8a67hjwmGh9ZYMnCL2R58ezGxpiPbAv4jBr+6O/SGh4sRRxSTun7H2RrN+XD2g0uHa8eb9p2+FsiTVWfjARXCdc6M263MLwLW35VbjJLBNxg4jYZEofohUYop1VQ=="
+      }
+    },
+    "refundquery-request": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "订单退款查询",
+      "key": "merchant-a",
+      "canonical": "out_refund_no=退款 &+=&pid=1001&timestamp=1790208000",
+      "signature": "qdvoxK0v57wB6TginpodUpXA9hQazm8cPJFLKW0hvPDKnGagVrj2mBeswXeJFEYuQ0o6kBRFp43jY3IpJxWirTPbEUq9JvRncOZmEKI9N5mxD0J7QyfRfgJB60E+/hmJ1kySgF7cVsMTMIqwhbTRtAy27qlm1r2kPVh9/mS9fUrEJ8r9SHE/XVJoTfw6AHrpJAGZ3RiuJpOKQmPMecYJpHZeLI3lWTULEAqvHLu/T9F40kAefBZ8d2Oz8rs2Ay7tltNN0VkCITlORwR5LQVtQK71saznx+vPY7rTycRbHj+AIRTvLeT8XaG44uusu6KKSC4Uy6SBCTHf2Z1BKwcoAQ==",
+      "parameters": {
+        "pid": "1001",
+        "timestamp": "1790208000",
+        "sign_type": "RSA",
+        "out_refund_no": "退款 &+=",
+        "sign": "qdvoxK0v57wB6TginpodUpXA9hQazm8cPJFLKW0hvPDKnGagVrj2mBeswXeJFEYuQ0o6kBRFp43jY3IpJxWirTPbEUq9JvRncOZmEKI9N5mxD0J7QyfRfgJB60E+/hmJ1kySgF7cVsMTMIqwhbTRtAy27qlm1r2kPVh9/mS9fUrEJ8r9SHE/XVJoTfw6AHrpJAGZ3RiuJpOKQmPMecYJpHZeLI3lWTULEAqvHLu/T9F40kAefBZ8d2Oz8rs2Ay7tltNN0VkCITlORwR5LQVtQK71saznx+vPY7rTycRbHj+AIRTvLeT8XaG44uusu6KKSC4Uy6SBCTHf2Z1BKwcoAQ=="
+      }
+    },
+    "create-response": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "统一下单接口 / 返回参数说明",
+      "key": "platform-a",
+      "canonical": "code=0&pay_info={\"appId\":\"wx-test\",\"zero\":0,\"note\":\"中文 &+=\"}&pay_type=jsapi&timestamp=1790208000&trade_no=T1",
+      "signature": "GjFAj8fyoryrvvf+NikLpewp2x/BoycmjUOMzpcpW6+5MKTrDv0NPIeKevOMGz8glFlTPQ5P5ULjd7bUzzUBsD/icrrHPgy2VyM81K9TXQAtwE0M0+MWrNInoP3yAN+3gVEfIt9sMf+Jv05r2UiW6BoGmt/jTzqxmd2x5jlhQmm/8thd9SpvmMhWfXCzCveWMXu/73MD/XSM8NnrkMCHHtNo+xrnfzkJL3s2Q/q+pNlE1/htyCPtStZWvP8HF4LCjvtNad7TuQT1BT72w7XPmPBAbqaj8Lf08HtXHeLquSJ+1q2I33geiRR9dwAqInZNw8Q/agJzh7salZ8gbTob1A==",
+      "body": "{\"code\":0,\"timestamp\":\"1790208000\",\"sign_type\":\"RSA\",\"trade_no\":\"T1\",\"pay_type\":\"jsapi\",\"pay_info\":\"{\\\"appId\\\":\\\"wx-test\\\",\\\"zero\\\":0,\\\"note\\\":\\\"中文 &+=\\\"}\",\"msg\":\"\",\"future_null\":null,\"sign\":\"GjFAj8fyoryrvvf+NikLpewp2x/BoycmjUOMzpcpW6+5MKTrDv0NPIeKevOMGz8glFlTPQ5P5ULjd7bUzzUBsD/icrrHPgy2VyM81K9TXQAtwE0M0+MWrNInoP3yAN+3gVEfIt9sMf+Jv05r2UiW6BoGmt/jTzqxmd2x5jlhQmm/8thd9SpvmMhWfXCzCveWMXu/73MD/XSM8NnrkMCHHtNo+xrnfzkJL3s2Q/q+pNlE1/htyCPtStZWvP8HF4LCjvtNad7TuQT1BT72w7XPmPBAbqaj8Lf08HtXHeLquSJ+1q2I33geiRR9dwAqInZNw8Q/agJzh7salZ8gbTob1A==\"}"
+    },
+    "query-response": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "订单查询 / 返回参数说明 / 支付状态列表",
+      "key": "platform-a",
+      "canonical": "code=0&future_zero=0&money=1.00&name=商品 &+\"测试\"=/%&out_trade_no=订单 &+=&param=原样参数 &+=/%&pid=1001&status=1&timestamp=1790208000&trade_no=T1&type=wxpay",
+      "signature": "nA5aP29Pl+hsgi0EBs8c92P19vE7LSygG3GRtygOhiu7LLti6QtmZeTMgLJB9RcNhX1Uz+ss8eRnHIhcDSLHIBchsQeChDr+PyxFlY68fUD8Or3VUJm6nM/VO2rH3qd6J994Lz0O/Ks3Kavuc4bi/KdVvsbOFVkLth6excLSMuvCwVJFZAjhK4tpZVOH03PVjDmBrHrIXK6A5CVVdfBJwbRWb7fuSSEnBPDzZVVpakPOXeR7UNdKI84C2cK/kVMRHMAK2f09pBd/+x4qtz2Fe6uiQRur3mSf2k79BJbKptc2FMxVE8ShCYFhudJTAW2fhjM1SZwuuhOr0ilkVixQfA==",
+      "body": "{\"code\":0,\"timestamp\":\"1790208000\",\"sign_type\":\"RSA\",\"pid\":\"1001\",\"trade_no\":\"T1\",\"out_trade_no\":\"订单 &+=\",\"money\":\"1.00\",\"status\":1,\"type\":\"wxpay\",\"name\":\"商品 &+\\\"测试\\\"=/%\",\"param\":\"原样参数 &+=/%\",\"future_zero\":0,\"future_empty\":\"\",\"future_null\":null,\"sign\":\"nA5aP29Pl+hsgi0EBs8c92P19vE7LSygG3GRtygOhiu7LLti6QtmZeTMgLJB9RcNhX1Uz+ss8eRnHIhcDSLHIBchsQeChDr+PyxFlY68fUD8Or3VUJm6nM/VO2rH3qd6J994Lz0O/Ks3Kavuc4bi/KdVvsbOFVkLth6excLSMuvCwVJFZAjhK4tpZVOH03PVjDmBrHrIXK6A5CVVdfBJwbRWb7fuSSEnBPDzZVVpakPOXeR7UNdKI84C2cK/kVMRHMAK2f09pBd/+x4qtz2Fe6uiQRur3mSf2k79BJbKptc2FMxVE8ShCYFhudJTAW2fhjM1SZwuuhOr0ilkVixQfA==\"}"
+    },
+    "refund-response": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "订单退款 / 返回参数说明",
+      "key": "platform-a",
+      "canonical": "code=0&money=0.50&msg=受理 &+=&out_refund_no=退款 &+=&reducemoney=0.50&refund_no=R1&timestamp=1790208000&trade_no=T1",
+      "signature": "oqhROi0ZOa0xfM+LSnIoGOXOxDYMNfxSqotg5Qpe3JccmJ+rImpU99fWzYtM87Hh6/w6KRq4ZaFEn8Xkf36FMPFn7qgb4bn4yOjjM91GC9UtNzkIanBOLYXW1ORuDIyaTnXZo+pFT0Ov8E0LH6MWP4MgpkWg28mqFtHOXca6uqcEqUqZwT1W+WpvwkbdjRlJYZYqr3IQYV4/UVOGToIdTcbCP4/9M5GVntE+fz6Lr30cuyh5vR0YbANjwu2cXz3td/X++IhoiiW2QDAPgv9mTyCKcgy9LXV84g6lvmKsnp4yYyg4eSU9Hmxps5AKeVKzUC3YVgn3SsVxdqBPyUtSvA==",
+      "body": "{\"code\":0,\"timestamp\":\"1790208000\",\"sign_type\":\"RSA\",\"refund_no\":\"R1\",\"out_refund_no\":\"退款 &+=\",\"trade_no\":\"T1\",\"money\":\"0.50\",\"reducemoney\":\"0.50\",\"msg\":\"受理 &+=\",\"sign\":\"oqhROi0ZOa0xfM+LSnIoGOXOxDYMNfxSqotg5Qpe3JccmJ+rImpU99fWzYtM87Hh6/w6KRq4ZaFEn8Xkf36FMPFn7qgb4bn4yOjjM91GC9UtNzkIanBOLYXW1ORuDIyaTnXZo+pFT0Ov8E0LH6MWP4MgpkWg28mqFtHOXca6uqcEqUqZwT1W+WpvwkbdjRlJYZYqr3IQYV4/UVOGToIdTcbCP4/9M5GVntE+fz6Lr30cuyh5vR0YbANjwu2cXz3td/X++IhoiiW2QDAPgv9mTyCKcgy9LXV84g6lvmKsnp4yYyg4eSU9Hmxps5AKeVKzUC3YVgn3SsVxdqBPyUtSvA==\"}"
+    },
+    "refundquery-response": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "订单退款查询 / 返回参数说明",
+      "key": "platform-a",
+      "canonical": "code=0&money=0.50&msg=受理 &+=&out_refund_no=退款 &+=&out_trade_no=订单 &+=&reducemoney=0.50&refund_no=R1&status=1&timestamp=1790208000&trade_no=T1",
+      "signature": "dEAE6+7RdD7txdiFPQOVUmmEgSDx9kc7KHAiKAg/QC9kjgQZ7yUX+0zUJW+nKo89cK/7tuRPpl+YlJaqJAaSMHz36BJIDn6yalg/3Uua6DmVfpVTa4f0iWwUFYQdouNEAPEOHR/HtoRCuMMnxKwrweVawHdRxo0HwCeO/Fq2TF3WYg2N7tLdDR+qwx2YCMrhF17uZJVyS2JAIhw/3LJ5sIj8H1giNve9LetH8KwexXYv+BYiNgdvGZBykX/cCszkuCSIrsFhyE5gGhkFNTMPBSOii1HdwyQPXvRMU7wxMXf/BuVSY4yOUok1qrRs2y64OWJlILrTQRPiBPPcr/ni8w==",
+      "body": "{\"code\":0,\"timestamp\":\"1790208000\",\"sign_type\":\"RSA\",\"refund_no\":\"R1\",\"out_refund_no\":\"退款 &+=\",\"trade_no\":\"T1\",\"money\":\"0.50\",\"reducemoney\":\"0.50\",\"msg\":\"受理 &+=\",\"out_trade_no\":\"订单 &+=\",\"status\":1,\"sign\":\"dEAE6+7RdD7txdiFPQOVUmmEgSDx9kc7KHAiKAg/QC9kjgQZ7yUX+0zUJW+nKo89cK/7tuRPpl+YlJaqJAaSMHz36BJIDn6yalg/3Uua6DmVfpVTa4f0iWwUFYQdouNEAPEOHR/HtoRCuMMnxKwrweVawHdRxo0HwCeO/Fq2TF3WYg2N7tLdDR+qwx2YCMrhF17uZJVyS2JAIhw/3LJ5sIj8H1giNve9LetH8KwexXYv+BYiNgdvGZBykX/cCszkuCSIrsFhyE5gGhkFNTMPBSOii1HdwyQPXvRMU7wxMXf/BuVSY4yOUok1qrRs2y64OWJlILrTQRPiBPPcr/ni8w==\"}"
+    },
+    "notify-a": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "支付结果通知",
+      "key": "platform-a",
+      "canonical": "future_zero=0&money=1.00&name=商品 &+\"测试\"=/%&out_trade_no=订单 &+=&param=原样参数 &+=/%&pid=1001&timestamp=1790208000&trade_no=T1&trade_status=TRADE_SUCCESS&type=wxpay",
+      "signature": "byI+3vVEXmHbPU28k5qeJHyWQzUc+fcJKRgjSmzkS8sBhoc+wQDY2FBQsqSFe1aeVxFdI+leg7l2zhWazg6QqK3xPv1lY+9bv/SR4M/ND654jj1nZtguIWp1WhKc9m7wygqQ10OOnhPMizhwxAeqw9im00UZDDlkl+u9U7hL7hKM0+L+eWXSLm5PG0lleU23dVgFmTe/LfWaJZCqZGOeOfJ8EfCG6iCcQ7ZencAWVfiwPANtaY8ZTp0vDFIkUp3S6ZCVMkRSUmypTJVnZlQH/1+p54mmn8GJUXtCNAq91oKqxo73xNdZqbTIQ0AQ6llhCkQcC+PEZHv/9iRAL9DL/g==",
+      "parameters": {
+        "pid": "1001",
+        "trade_no": "T1",
+        "out_trade_no": "订单 &+=",
+        "money": "1.00",
+        "name": "商品 &+\"测试\"=/%",
+        "param": "原样参数 &+=/%",
+        "trade_status": "TRADE_SUCCESS",
+        "type": "wxpay",
+        "timestamp": "1790208000",
+        "sign_type": "RSA",
+        "future_zero": "0",
+        "future_empty": "",
+        "sign": "byI+3vVEXmHbPU28k5qeJHyWQzUc+fcJKRgjSmzkS8sBhoc+wQDY2FBQsqSFe1aeVxFdI+leg7l2zhWazg6QqK3xPv1lY+9bv/SR4M/ND654jj1nZtguIWp1WhKc9m7wygqQ10OOnhPMizhwxAeqw9im00UZDDlkl+u9U7hL7hKM0+L+eWXSLm5PG0lleU23dVgFmTe/LfWaJZCqZGOeOfJ8EfCG6iCcQ7ZencAWVfiwPANtaY8ZTp0vDFIkUp3S6ZCVMkRSUmypTJVnZlQH/1+p54mmn8GJUXtCNAq91oKqxo73xNdZqbTIQ0AQ6llhCkQcC+PEZHv/9iRAL9DL/g=="
+      }
+    },
+    "query-b-request": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "订单查询",
+      "key": "merchant-b",
+      "canonical": "out_trade_no=B-订单 &+=&pid=1002&timestamp=1790208060",
+      "signature": "VY8CL8jO1aUT/a8AbjMwvxI9mlUIYLKdfNiaGrlA9IyGQe1cK0qQOuqWFbexe9R/Gr5SSyaoaCb3AghQi6h7Gj7KL+WlLy7UaKYMBo6BlM7tEUHfxgyoGX41kSCm3QsAS3Hjadtw8HW7yyNDqT0v7r0sY5vTFkgQRUstT+hERxa4OVSiPsqSPkmZwrtDN6Lgu8HI0bigXY2Z528gW1AcrVlVlKTMrKDc/FHWHyQfe6Dx7wSncLiV9u2wpSfadAp8HK7d857SoFj2Bvch9Z6c0p0qcYRDdC/bxTDOvt61Fw9Ip1Mt9zjHTIJ3iV+C6u/l1GFqAkI9ZF5M0GJ8s721Rg==",
+      "parameters": {
+        "pid": "1002",
+        "timestamp": "1790208060",
+        "sign_type": "RSA",
+        "out_trade_no": "B-订单 &+=",
+        "sign": "VY8CL8jO1aUT/a8AbjMwvxI9mlUIYLKdfNiaGrlA9IyGQe1cK0qQOuqWFbexe9R/Gr5SSyaoaCb3AghQi6h7Gj7KL+WlLy7UaKYMBo6BlM7tEUHfxgyoGX41kSCm3QsAS3Hjadtw8HW7yyNDqT0v7r0sY5vTFkgQRUstT+hERxa4OVSiPsqSPkmZwrtDN6Lgu8HI0bigXY2Z528gW1AcrVlVlKTMrKDc/FHWHyQfe6Dx7wSncLiV9u2wpSfadAp8HK7d857SoFj2Bvch9Z6c0p0qcYRDdC/bxTDOvt61Fw9Ip1Mt9zjHTIJ3iV+C6u/l1GFqAkI9ZF5M0GJ8s721Rg=="
+      }
+    },
+    "query-b-response": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "订单查询 / 支付状态列表",
+      "key": "platform-b",
+      "canonical": "code=0&money=2.00&out_trade_no=B-订单 &+=&pid=1002&status=1&timestamp=1790208060&trade_no=T2&type=alipay",
+      "signature": "R2YcYQ9/SdNaVKyXxpg2qagmz1FHYWpbJkssr5fl+VYftTPi7Z/GsG8iCDq+DO7r6gneV63QFISpaWYnxsS8NedDLhB4g7s6GGUwcJvjW3zYwrAQT2tzKbuSCL5yP0UJeOSbUbFcUsc5gNr8U7/LaWguYgWxO4J0P6e/UorVrFEsrM+n5wP2hBSV/0c4dpqeZwjNtSYRPrjBSGupmSxiKadQy6oI1rFTldWXnTjyegPdRT0c+YySrIdW34HKehjgLZlppfR8cP1fmIhaKNdo19MP7+nu180VDCmj9dqma4l6ZOuvNJd2gsNCIePiXPw7xYFudTKRw7jsomBUqpbcBg==",
+      "body": "{\"code\":0,\"pid\":\"1002\",\"timestamp\":\"1790208060\",\"sign_type\":\"RSA\",\"out_trade_no\":\"B-订单 &+=\",\"trade_no\":\"T2\",\"money\":\"2.00\",\"status\":1,\"type\":\"alipay\",\"sign\":\"R2YcYQ9/SdNaVKyXxpg2qagmz1FHYWpbJkssr5fl+VYftTPi7Z/GsG8iCDq+DO7r6gneV63QFISpaWYnxsS8NedDLhB4g7s6GGUwcJvjW3zYwrAQT2tzKbuSCL5yP0UJeOSbUbFcUsc5gNr8U7/LaWguYgWxO4J0P6e/UorVrFEsrM+n5wP2hBSV/0c4dpqeZwjNtSYRPrjBSGupmSxiKadQy6oI1rFTldWXnTjyegPdRT0c+YySrIdW34HKehjgLZlppfR8cP1fmIhaKNdo19MP7+nu180VDCmj9dqma4l6ZOuvNJd2gsNCIePiXPw7xYFudTKRw7jsomBUqpbcBg==\"}"
+    },
+    "notify-b": {
+      "source": "https://mazhifupay.com/28/6/568.html",
+      "chapter": "支付结果通知",
+      "key": "platform-b",
+      "canonical": "money=2.00&out_trade_no=B-订单 &+=&pid=1002&timestamp=1790208060&trade_no=T2&trade_status=TRADE_SUCCESS&type=alipay",
+      "signature": "lHTslJmRF8bxpKKlqZeh1A+6bQgs+kmNFVCjjeoRaPQj6SFF3FPyLSPFpDA+dHKRqYfjG4v6O5YidI7k6VR3CjkPZMaUyxN9wAGG49WCh6BbLZhdJaDbNF5cdoI6yxofvzBLCego8niXjJHoeVScPvD2QZsm1CkEMlzF6T+42OVGsOqP0N1iEk/S/I3awgYPQGA4gyWz3+s2zZbD5KRsWuFimUkUn1M/I6ALHI/NnGavdSasaJee2QMqhoQOHCiLgLhRlV6T4+CZs+zqmFM/IKXuY7eWiEmArR2dBmaRiDb6Nrv+1VtRYahxOMSAXHt6OKSNd4tji1MJj57Ei9eelA==",
+      "parameters": {
+        "pid": "1002",
+        "timestamp": "1790208060",
+        "sign_type": "RSA",
+        "out_trade_no": "B-订单 &+=",
+        "trade_no": "T2",
+        "money": "2.00",
+        "trade_status": "TRADE_SUCCESS",
+        "type": "alipay",
+        "sign": "lHTslJmRF8bxpKKlqZeh1A+6bQgs+kmNFVCjjeoRaPQj6SFF3FPyLSPFpDA+dHKRqYfjG4v6O5YidI7k6VR3CjkPZMaUyxN9wAGG49WCh6BbLZhdJaDbNF5cdoI6yxofvzBLCego8niXjJHoeVScPvD2QZsm1CkEMlzF6T+42OVGsOqP0N1iEk/S/I3awgYPQGA4gyWz3+s2zZbD5KRsWuFimUkUn1M/I6ALHI/NnGavdSasaJee2QMqhoQOHCiLgLhRlV6T4+CZs+zqmFM/IKXuY7eWiEmArR2dBmaRiDb6Nrv+1VtRYahxOMSAXHt6OKSNd4tji1MJj57Ei9eelA=="
+      }
+    }
+  }
+}
