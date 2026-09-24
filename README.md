@@ -112,8 +112,6 @@ public final class Payments {
 Clone https://github.com/nb-sb/epay-sdk and follow the instructions in .agents/skills/use-epay-sdk/SKILL.md to install the use-epay-sdk skill and integrate epay-sdk into this project.
 ```
 
-远程 `main` 还没有该技能文件时，这一句拿不到技能。
-
 ## 构建
 
 ```bash
